@@ -1,9 +1,10 @@
 import React, { useEffect, useRef } from 'react';
 import { StaticImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
-import { srConfig } from '../../config';
+import config, { srConfig } from '../../config';
 import sr from '../../utils/sr';
 import { usePrefersReducedMotion } from '../../hooks';
+import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
@@ -32,15 +33,17 @@ const StyledText = styled.div`
       position: relative;
       margin-bottom: 10px;
       padding-left: 20px;
-      font-family: var(--font-mono);
-      font-size: var(--fz-xs);
+      font-family: var(--font-calibre);
+      font-size: var(--h4-font-size);
+      color: var(--first-color-alt);
 
       &:before {
         content: '▹';
         position: absolute;
         left: 0;
-        color: var(--green);
-        font-size: var(--fz-sm);
+        top: 0.25rem;
+        color: var(--first-color);
+        font-size: var(--h4-font-size);
         line-height: 12px;
       }
     }
@@ -52,7 +55,7 @@ const StyledPic = styled.div`
 
   @media (max-width: 768px) {
     margin: 50px auto 0;
-    width: 70%;
+    width: 75%;
   }
 
   .wrapper {
@@ -61,7 +64,7 @@ const StyledPic = styled.div`
     position: relative;
     width: 100%;
     border-radius: var(--border-radius);
-    background-color: var(--green);
+    background-color: var(--first-color);
 
     &:hover,
     &:focus {
@@ -82,7 +85,7 @@ const StyledPic = styled.div`
       position: relative;
       border-radius: var(--border-radius);
       mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1);
+      filter: grayscale(50%) contrast(1);
       transition: var(--transition);
     }
 
@@ -100,12 +103,12 @@ const StyledPic = styled.div`
     &:before {
       top: 0;
       left: 0;
-      background-color: var(--navy);
+      background-color: var(--body-color);
       mix-blend-mode: screen;
     }
 
     &:after {
-      border: 2px solid var(--green);
+      border: 2px solid var(--first-color);
       top: 20px;
       left: 20px;
       z-index: -1;
@@ -125,7 +128,7 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
+  const skills = ['Java', 'Spring', 'Python', 'JavaScript (ES6+)', 'TypeScript', 'React', 'Angular', 'Node.js'];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -135,30 +138,11 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! My name is Brittany and I enjoy creating things that live on the internet. My
-              interest in web development started back in 2012 when I decided to try editing custom
-              Tumblr themes — turns out hacking together a custom reblog button taught me a lot
-              about HTML &amp; CSS!
+              Hi! I'm <RoughNotation animationDuration={1000} animationDelay={100} type="highlight" color={config.colors.first_color_light} show={true}>Nipuna Upeksha</RoughNotation>, and I love programming and learning new technologies. I started programming back in 2015 when I was selected to pursue my BSc. (Engineering) in Electronics and Telecommunication Engineering specializing in <RoughNotation animationDuration={1000} animationDelay={100} type="highlight" color={config.colors.first_color_light} show={true}> Biomedical Engineering</RoughNotation> at University of Moratuwa
             </p>
 
             <p>
-              Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://us.mullenlowe.com/">an advertising agency</a>,{' '}
-              <a href="https://starry.com/">a start-up</a>,{' '}
-              <a href="https://www.apple.com/">a huge corporation</a>, and{' '}
-              <a href="https://scout.camd.northeastern.edu/">a student-led design studio</a>. My
-              main focus these days is building accessible, inclusive products and digital
-              experiences at <a href="https://upstatement.com/">Upstatement</a> for a variety of
-              clients.
-            </p>
-
-            <p>
-              I also recently{' '}
-              <a href="https://www.newline.co/courses/build-a-spotify-connected-app">
-                launched a course
-              </a>{' '}
-              that covers everything you need to build a web app with the Spotify API using Node
-              &amp; React.
+            Fast-forward to today, I had the privilege of working at <RoughNotation animationDuration={1000} animationDelay={100} type="circle" color={config.colors.first_color} show={true}>Sanota</RoughNotation> as a Electronic and Software Trainee Developer, and I'm currently working as a Software Engineer at <RoughNotation animationDuration={1000} animationDelay={100} type="circle" color={config.colors.first_color} show={true}>WSO2.</RoughNotation> My main focus these days is building highly scalable, security-oriented <RoughNotation animationDuration={1000} animationDelay={100} type="highlight" color={config.colors.accent_color} show={true}>Identity and Access Management</RoughNotation> solutions.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>

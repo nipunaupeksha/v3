@@ -17,7 +17,7 @@ const StyledHeader = styled.header`
   padding: 0px 50px;
   width: 100%;
   height: var(--nav-height);
-  background-color: rgba(10, 25, 47, 0.85);
+  background-color: var(--body-color);
   filter: none !important;
   pointer-events: auto !important;
   user-select: auto !important;
@@ -38,8 +38,8 @@ const StyledHeader = styled.header`
       css`
         height: var(--nav-scroll-height);
         transform: translateY(0px);
-        background-color: rgba(10, 25, 47, 0.85);
-        box-shadow: 0 10px 30px -10px var(--navy-shadow);
+        background-color: var(--body-color);
+        box-shadow: 0 10px 30px -10px var(--body-color);
       `};
 
     ${props =>
@@ -48,7 +48,7 @@ const StyledHeader = styled.header`
       css`
         height: var(--nav-scroll-height);
         transform: translateY(calc(var(--nav-scroll-height) * -1));
-        box-shadow: 0 10px 30px -10px var(--navy-shadow);
+        box-shadow: 0 10px 30px -10px var(--body-color);
       `};
   }
 `;
@@ -57,8 +57,8 @@ const StyledNav = styled.nav`
   ${({ theme }) => theme.mixins.flexBetween};
   position: relative;
   width: 100%;
-  color: var(--lightest-slate);
-  font-family: var(--font-mono);
+  color: var(--fisrt-color);
+  font-family: var(--font-calibre);
   counter-reset: item 0;
   z-index: 12;
 
@@ -66,14 +66,14 @@ const StyledNav = styled.nav`
     ${({ theme }) => theme.mixins.flexCenter};
 
     a {
-      color: var(--green);
+      color: var(--first-color);
       width: 42px;
       height: 42px;
 
       &:hover,
       &:focus {
         svg {
-          fill: var(--green-tint);
+          fill: var(--first-color);
         }
       }
 
@@ -104,7 +104,8 @@ const StyledLinks = styled.div`
       margin: 0 5px;
       position: relative;
       counter-increment: item 1;
-      font-size: var(--small-font-size);
+      font-size: var(--normal-font-size);
+      color: var(--first-color);
 
       a {
         padding: 10px;
@@ -112,8 +113,8 @@ const StyledLinks = styled.div`
         &:before {
           content: '0' counter(item) '.';
           margin-right: 5px;
-          color: var(--green);
-          font-size: var(--smaller-font-size);
+          color: var(--first-color);
+          font-size: var(--normal-font-size);
           text-align: right;
         }
       }
@@ -123,7 +124,7 @@ const StyledLinks = styled.div`
   .resume-button {
     ${({ theme }) => theme.mixins.smallButton};
     margin-left: 15px;
-    font-size: var(--small-font-size);
+    font-size: var(--normal-font-size);
   }
 `;
 
@@ -173,7 +174,7 @@ const Nav = ({ isHome }) => {
   );
 
   const ResumeLink = (
-    <a className="resume-button" href="/resume.pdf" target="_blank" rel="noopener noreferrer">
+    <a className="resume-button" href="/resume.pdf" target="_blank" rel="noopener noreferrer" style={{fontFamily:'var(--font-calibre)'}}>
       Resume
     </a>
   );
@@ -184,7 +185,6 @@ const Nav = ({ isHome }) => {
         {prefersReducedMotion ? (
           <>
             {Logo}
-
             <StyledLinks>
               <ol>
                 {navLinks &&
@@ -196,7 +196,6 @@ const Nav = ({ isHome }) => {
               </ol>
               <div>{ResumeLink}</div>
             </StyledLinks>
-
             <Menu />
           </>
         ) : (

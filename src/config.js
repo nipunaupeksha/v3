@@ -30,6 +30,8 @@ module.exports = {
 
   colors: {
     first_color: '#579CE0',
+    first_color_light:"#B6D9FC",
+    accent_color:"#FFC300",
     text_color: '#232629',
     body_color: '#FBFCFE',
   },
