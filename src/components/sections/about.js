@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import config, { srConfig } from '../../config';
 import sr from '../../utils/sr';
 import { usePrefersReducedMotion } from '../../hooks';
-import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
+import { RoughNotation } from 'react-rough-notation';
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
@@ -128,7 +128,16 @@ const About = () => {
     sr.reveal(revealContainer.current, srConfig());
   }, []);
 
-  const skills = ['Java', 'Spring', 'Python', 'JavaScript (ES6+)', 'TypeScript', 'React', 'Angular', 'Node.js'];
+  const skills = [
+    'Java',
+    'Spring',
+    'Python',
+    'JavaScript (ES6+)',
+    'TypeScript',
+    'React',
+    'Angular',
+    'Node.js',
+  ];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -138,11 +147,67 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hi! I'm <RoughNotation animationDuration={1000} animationDelay={100} type="highlight" color={config.colors.first_color_light} show={true}>Nipuna Upeksha</RoughNotation>, and I love programming and learning new technologies. I started programming back in 2015 when I was selected to pursue my BSc. (Engineering) in Electronics and Telecommunication Engineering specializing in <RoughNotation animationDuration={1000} animationDelay={100} type="highlight" color={config.colors.first_color_light} show={true}> Biomedical Engineering</RoughNotation> at University of Moratuwa
+              Hi! I'm{' '}
+              <RoughNotation
+                animationDuration={1000}
+                animationDelay={100}
+                type="highlight"
+                color={config.colors.accent_color}
+                show={true}
+              >
+                Nipuna Upeksha
+              </RoughNotation>
+              , and I love programming and learning new technologies. I started programming back in
+              2015 when I was selected to pursue my BSc. (Engineering) in Electronics and
+              Telecommunication Engineering specializing in{' '}
+              <RoughNotation
+                animationDuration={1000}
+                animationDelay={100}
+                type="highlight"
+                color={config.colors.accent_color}
+                show={true}
+              >
+                {' '}
+                Biomedical Engineering
+              </RoughNotation>{' '}
+              at University of Moratuwa
             </p>
 
             <p>
-            Fast-forward to today, I had the privilege of working at <RoughNotation animationDuration={1000} animationDelay={100} type="circle" color={config.colors.first_color} show={true}>Sanota</RoughNotation> as a Electronic and Software Trainee Developer, and I'm currently working as a Software Engineer at <RoughNotation animationDuration={1000} animationDelay={100} type="circle" color={config.colors.first_color} show={true}>WSO2.</RoughNotation> My main focus these days is building highly scalable, security-oriented <RoughNotation animationDuration={1000} animationDelay={100} type="highlight" color={config.colors.accent_color} show={true}>Identity and Access Management</RoughNotation> solutions.
+              Fast-forward to today, I had the privilege of working at{' '}
+              <RoughNotation
+                animationDuration={1000}
+                animationDelay={100}
+                type="circle"
+                strokeWidth={2}
+                color={config.colors.accent_color}
+                show={true}
+              >
+                Sanota
+              </RoughNotation>{' '}
+              as a Electronic and Software Trainee Developer, and I'm currently working as a
+              Software Engineer at{' '}
+              <RoughNotation
+                animationDuration={1000}
+                animationDelay={100}
+                strokeWidth={2}
+                type="circle"
+                color={config.colors.accent_color}
+                show={true}
+              >
+                WSO2.
+              </RoughNotation>{' '}
+              My main focus these days is building highly scalable, security-oriented{' '}
+              <RoughNotation
+                animationDuration={1000}
+                animationDelay={100}
+                type="highlight"
+                color={config.colors.accent_color}
+                show={true}
+              >
+                Identity and Access Management
+              </RoughNotation>{' '}
+              solutions.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>
