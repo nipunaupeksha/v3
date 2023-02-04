@@ -33,7 +33,7 @@ const StyledText = styled.div`
       position: relative;
       margin-bottom: 10px;
       padding-left: 20px;
-      font-family: var(--font-calibre);
+      font-family: var(--font-sans);
       font-size: var(--h4-font-size);
       color: var(--first-color-alt);
 

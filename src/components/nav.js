@@ -57,8 +57,8 @@ const StyledNav = styled.nav`
   ${({ theme }) => theme.mixins.flexBetween};
   position: relative;
   width: 100%;
-  color: var(--fisrt-color);
-  font-family: var(--font-calibre);
+  color: var(--first-color);
+  font-family: var(--font-sans);
   counter-reset: item 0;
   z-index: 12;
 
@@ -131,7 +131,7 @@ const StyledLinks = styled.div`
 const Nav = ({ isHome }) => {
   const [isMounted, setIsMounted] = useState(!isHome);
   const scrollDirection = useScrollDirection('down');
-  const [scrolledToTop, setScrolledToTop] = useState(true);
+  const [scrolledToTop, setScrolledToTop] = useState(false);
   const prefersReducedMotion = usePrefersReducedMotion();
 
   const handleScroll = () => {
@@ -179,7 +179,7 @@ const Nav = ({ isHome }) => {
       href="/resume.pdf"
       target="_blank"
       rel="noopener noreferrer"
-      style={{ fontFamily: 'var(--font-calibre)' }}
+      style={{ fontFamily: 'var(--font-sans)' }}
     >
       Resume
     </a>

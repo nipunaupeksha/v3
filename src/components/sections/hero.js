@@ -53,7 +53,7 @@ const StyledHeroSection = styled.section`
 const StyledEmailLink = styled.a`
   ${mixins.bigButton};
   margin-top: 50px;
-  font-family: var(--font-calibre);
+  font-family: var(--font-sans);
   font-size: var(--h2-font-size);
 `;
 

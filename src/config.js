@@ -41,6 +41,10 @@ module.exports = {
       name: 'About',
       url: '/#about',
     },
+    {
+      name: 'Jobs',
+      url: "/#jobs"
+    }
   ],
 
   srConfig: (delay = 200, viewFactor = 0.25) => ({
