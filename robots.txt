@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Sitemap: https://nipunaupeksha.github.io/sitemap-index.xml
+Host: https://nipunaupeksha.github.io

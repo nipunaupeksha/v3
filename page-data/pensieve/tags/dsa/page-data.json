@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-js",
+    "path": "/pensieve/tags/dsa/",
+    "result": {"data":{"allMarkdownRemark":{"totalCount":3,"edges":[{"node":{"frontmatter":{"title":"ProjectEuler Solutions","description":"My ProjectEuler Solutions Bundle","date":"2022-09-07","slug":"/pensieve/projecteuler","tags":["DSA","Java"]}}},{"node":{"frontmatter":{"title":"Elements of Programming Interviews in Java Solutions","description":"My EPI Solutions Bundle","date":"2022-08-23","slug":"/pensieve/epi","tags":["DSA","Java"]}}},{"node":{"frontmatter":{"title":"LeetCode Solutions","description":"My LeetCode Solutions Bundle","date":"2022-08-23","slug":"/pensieve/leetcode","tags":["DSA","Java"]}}}]}},"pageContext":{"tag":"DSA"}},
+    "staticQueryHashes": ["1994492073","2273691282","3825832676","4162897811"]}

@@ -1,0 +1,1184 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="ie=edge"/><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/><meta name="generator" content="Gatsby 3.15.0"/><title data-react-helmet="true">React Class Components and Lifecycle Methods | Nipuna Upeksha</title><meta data-react-helmet="true" name="description" content="Nipuna Upeksha is a Software Engineer who explores exceptional digital experiences"/><meta data-react-helmet="true" name="image" content="https://nipunaupeksha.github.io/og.png"/><meta data-react-helmet="true" property="og:title" content="Nipuna Upeksha"/><meta data-react-helmet="true" property="og:description" content="Nipuna Upeksha is a Software Engineer who explores exceptional digital experiences"/><meta data-react-helmet="true" property="og:image" content="https://nipunaupeksha.github.io/og.png"/><meta data-react-helmet="true" property="og:url" content="https://nipunaupeksha.github.io/pensieve/react-001"/><meta data-react-helmet="true" property="og:type" content="website"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><meta data-react-helmet="true" name="twitter:creator" content="@NipunaUpeksha"/><meta data-react-helmet="true" name="twitter:title" content="Nipuna Upeksha"/><meta data-react-helmet="true" name="twitter:description" content="Nipuna Upeksha is a Software Engineer who explores exceptional digital experiences"/><meta data-react-helmet="true" name="twitter:image" content="https://nipunaupeksha.github.io/og.png"/><style data-styled="" data-styled-version="5.3.6">../font-face{font-family:'Calibre';src:url(/static/Calibre-Regular-b0d4cbb1201155ddccc21d1b8059a670.woff2) format('woff2'), url(/static/Calibre-Regular-98526589fa32315c552129869e08427e.woff) format('woff');font-weight:400;font-style:normal;font-display:auto;}/*!sc*/
+../font-face{font-family:'Calibre';src:url(/static/Calibre-Medium-568dce56f869a519a015d3b69443b067.woff2) format('woff2'), url(/static/Calibre-Medium-46693d9b57a6b8a657b5393258f6e899.woff) format('woff');font-weight:500;font-style:normal;font-display:auto;}/*!sc*/
+../font-face{font-family:'Calibre';src:url(/static/Calibre-Semibold-94fc73852539d6733dc0d80252c5e3fb.woff2) format('woff2'), url(/static/Calibre-Semibold-6972688a249bd53a6c7e69a89e50cdd6.woff) format('woff');font-weight:600;font-style:normal;font-display:auto;}/*!sc*/
+../font-face{font-family:'Calibre';src:url(/static/Calibre-RegularItalic-5f875bd7b669f1e11b622d4d6d71b5b0.woff2) format('woff2'), url(/static/Calibre-RegularItalic-57371b9e514dbbe9da31dad1a298de2d.woff) format('woff');font-weight:400;font-style:italic;font-display:auto;}/*!sc*/
+../font-face{font-family:'Calibre';src:url(/static/Calibre-MediumItalic-7aa140573fd9ed30ae01e117c418b12b.woff2) format('woff2'), url(/static/Calibre-MediumItalic-aa285f95879aa2c2d26b228d5e422da6.woff) format('woff');font-weight:500;font-style:italic;font-display:auto;}/*!sc*/
+../font-face{font-family:'Calibre';src:url(/static/Calibre-SemiboldItalic-5f04bffe7ce988169806d66e417a966a.woff2) format('woff2'), url(/static/Calibre-SemiboldItalic-ad4bd95abee7bca1bdd6a93398f84a04.woff) format('woff');font-weight:600;font-style:italic;font-display:auto;}/*!sc*/
+../font-face{font-family:'SF Mono';src:url(/static/SFMono-Regular-8799e6387338d58f2f137df821c86eb4.woff2) format('woff2'), url(/static/SFMono-Regular-e36fa5257c93fc7711eae342068f9eda.woff) format('woff');font-weight:400;font-style:normal;font-display:auto;}/*!sc*/
+../font-face{font-family:'SF Mono';src:url(/static/SFMono-Semibold-6e6f6c93f4bdf9cbd090c60e97a017e2.woff2) format('woff2'), url(/static/SFMono-Semibold-ee054046915420413d0068fb1e7105c3.woff) format('woff');font-weight:600;font-style:normal;font-display:auto;}/*!sc*/
+../font-face{font-family:'SF Mono';src:url(/static/SFMono-RegularItalic-a596917f86217b40000ff1b894cd0e52.woff2) format('woff2'), url(/static/SFMono-RegularItalic-3a20a00dfdeb4ba538473fa7bf625cbd.woff) format('woff');font-weight:400;font-style:italic;font-display:auto;}/*!sc*/
+../font-face{font-family:'SF Mono';src:url(/static/SFMono-SemiboldItalic-9a0ae6382e12c5e28a7342ffb41cf4da.woff2) format('woff2'), url(/static/SFMono-SemiboldItalic-10eb596e904940cd1aebb2cc6286015c.woff) format('woff');font-weight:600;font-style:italic;font-display:auto;}/*!sc*/
+:root{--nav-height:8.5rem;--nav-scroll-height:8.5rem;--hamburger-width:2rem;--hue-color:210;--first-color:hsl(var(--hue-color),69%,61%);--first-color-alt:hsl(var(--hue-color),57%,53%);--first-color-light:hsl(var(--hue-color),92%,85%);--title-color:hsl(var(--hue-color),8%,15%);--text-color:hsl(var(--hue-color),8%,15%);--input-color:hsl(var(--hue-color),70%,96%);--body-color:hsl(var(--hue-color),60%,99%);--scroll-bar-color:hsl(var(--hue-color),12%,90%);--scroll-thumb-color:hsl(var(--hue-color),12%,80%);--container-color:#fff;--font-sans:'Calibre','Inter','San Francisco','SF Pro Text',-apple-system,system-ui,sans-serif;--font-mono:'SF Mono','Fira Code','Fira Mono','Roboto Mono',monospace;--big-font-size:2rem;--h1-font-size:1.5rem;--h2-font-size:1.25rem;--h3-font-size:1.125rem;--h4-font-size:0.9rem;--normal-font-size:0.938rem;--small-font-size:0.813rem;--smaller-font-size:0.75rem;--mb-0-25:0.25rem;--mb-0-5:0.5rem;--mb-0-75:0.75rem;--mb-1:1rem;--mb-1-25:1.25rem;--mb-1-5:1.5rem;--mb-2:2rem;--mb-2-5:2.5rem;--mb-3:3rem;--border-radius:0.5rem;--tab-height:2.5rem;--tab-width:14rem;--easing:cubic-bezier(0.645,0.045,0.355,1);--transition:all 0.25s cubic-bezier(0.645,0.045,0.355,1);--ham-before:top 0.1s ease-in 0.25s,opacity 0.1s ease-in;--ham-before-active:top 0.1s ease-out,opacity 0.1s ease-out 0.12s;--ham-after:bottom 0.1s ease-in 0.25s,transform 0.22s cubic-bezier(0.55,0.055,0.675,0.19);--ham-after-active:bottom 0.1s ease-out,transform 0.22s cubic-bezier(0.215,0.61,0.355,1) 0.12s;}/*!sc*/
+html{box-sizing:border-box;width:100%;-webkit-scroll-behavior:smooth;-moz-scroll-behavior:smooth;-ms-scroll-behavior:smooth;scroll-behavior:smooth;}/*!sc*/
+*,*:before,*:after{box-sizing:inherit;}/*!sc*/
+::selection{background-color:var(--first-color-alt);color:var(--first-color-light);}/*!sc*/
+:focus{outline:2px dashed var(--first-color);outline-offset:3px;}/*!sc*/
+:focus:not(:focus-visible){outline:none;outline-offset:0px;}/*!sc*/
+:focus-visible{outline:2px dashed var(--first-color);outline-offset:3px;}/*!sc*/
+html{-webkit-scrollbar-width:thin;-moz-scrollbar-width:thin;-ms-scrollbar-width:thin;scrollbar-width:thin;-webkit-scrollbar-color:var(--scroll-bar-color) var(--scroll-bar-thumb-color);-moz-scrollbar-color:var(--scroll-bar-color) var(--scroll-bar-thumb-color);-ms-scrollbar-color:var(--scroll-bar-color) var(--scroll-bar-thumb-color);scrollbar-color:var(--scroll-bar-color) var(--scroll-bar-thumb-color);}/*!sc*/
+::-webkit-scrollbar{width:1.25rem;}/*!sc*/
+::-webkit-scrollbar-track{background:var(--scroll-bar-color);}/*!sc*/
+::-webkit-scrollbar-thumb{background-color:var(--scroll-bar-thumb--color);border:3px solid var(--scroll-bar-color);border-radius:1.125rem;}/*!sc*/
+body{margin:0;width:100%;min-height:100%;overflow-x:hidden;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;background-color:var(--navy);color:var(--text-color);font-family:var(--font-sans);font-size:var(--h1-font-size);line-height:1.3;}/*!sc*/
+@media (max-width:480px){body{font-size:var(--h2-font-size);}}/*!sc*/
+body.hidden{overflow:hidden;}/*!sc*/
+body.blur{overflow:hidden;}/*!sc*/
+body.blur header{background-color:transparent;}/*!sc*/
+body.blur #content > *{-webkit-filter:blur(5px) brightness(0.7);filter:blur(5px) brightness(0.7);-webkit-transition:var(--transition);transition:var(--transition);pointer-events:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}/*!sc*/
+#root{min-height:100vh;display:grid;grid-template-rows:1fr auto;grid-template-columns:100%;}/*!sc*/
+main{margin:0 auto;width:100%;max-width:1600px;min-height:100vh;padding:200px 150px;}/*!sc*/
+@media (max-width:1080px){main{padding:200px 100px;}}/*!sc*/
+@media (max-width:768px){main{padding:150px 50px;}}/*!sc*/
+@media (max-width:480px){main{padding:125px 25px;}}/*!sc*/
+main.fillHeight{padding:0 150px;}/*!sc*/
+@media (max-width:1080px){main.fillHeight{padding:0 100px;}}/*!sc*/
+@media (max-width:768px){main.fillHeight{padding:0 50px;}}/*!sc*/
+@media (max-width:480px){main.fillHeight{padding:0 25px;}}/*!sc*/
+section{margin:0 auto;padding:100px 0;max-width:1000px;}/*!sc*/
+@media (max-width:768px){section{padding:80px 0;}}/*!sc*/
+@media (max-width:480px){section{padding:60px 0;}}/*!sc*/
+h1,h2,h3,h4,h5,h6{margin:0 0 10px 0;font-weight:600;color:var(--text-color);line-height:1.1;}/*!sc*/
+.big-heading{margin:0;font-size:clamp(40px,8vw,80px);}/*!sc*/
+.medium-heading{margin:0;font-size:clamp(40px,8vw,60px);}/*!sc*/
+.numbered-heading{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;margin:10px 0 40px;width:100%;font-size:clamp(26px,5vw,var(--big-font-size));white-space:nowrap;}/*!sc*/
+.numbered-heading:before{position:relative;counter-increment:section;content:'0' counter(section) '.';margin-right:var(--mb-0-75);color:var(--first-color);font-family:var(--font-mono);font-size:clamp(var(--h3-font-size),3vw,var(--h2-font-size));font-weight:400;}/*!sc*/
+@media (max-width:480px){.numbered-heading:before{margin-bottom:calc(-1 * var(--mb-0-25));margin-right:var(--mb-0-25);}}/*!sc*/
+.numbered-heading:after{content:'';display:block;position:relative;width:300px;height:1px;margin-left:var(--mb-1-25);background-color:var(--first-color-light);}/*!sc*/
+@media (max-width:1080px){.numbered-heading:after{width:200px;}}/*!sc*/
+@media (max-width:768px){.numbered-heading:after{width:100%;}}/*!sc*/
+@media (max-width:600px){.numbered-heading:after{margin-left:10px;}}/*!sc*/
+img,svg,.gatsby-image-wrapper{width:100%;max-width:100%;vertical-align:middle;}/*!sc*/
+img[alt=""],img:not([alt]){-webkit-filter:blur(5px);filter:blur(5px);}/*!sc*/
+svg{width:100%;height:100%;fill:currentColor;vertical-align:middle;}/*!sc*/
+svg.feather{fill:none;}/*!sc*/
+a{display:inline-block;-webkit-text-decoration:none;text-decoration:none;-webkit-text-decoration-skip-ink:auto;text-decoration-skip-ink:auto;color:inherit;position:relative;-webkit-transition:var(--transition);transition:var(--transition);}/*!sc*/
+a:hover,a:focus{color:var(--first-color);}/*!sc*/
+a.inline-link{display:inline-block;-webkit-text-decoration:none;text-decoration:none;-webkit-text-decoration-skip-ink:auto;text-decoration-skip-ink:auto;position:relative;-webkit-transition:var(--transition);transition:var(--transition);color:var(--first-color);}/*!sc*/
+a.inline-link:hover,a.inline-link:focus,a.inline-link:active{color:var(--first-color);outline:0;}/*!sc*/
+a.inline-link:hover:after,a.inline-link:focus:after,a.inline-link:active:after{width:100%;}/*!sc*/
+a.inline-link:hover > *,a.inline-link:focus > *,a.inline-link:active > *{color:var(--first-color) !important;-webkit-transition:var(--transition);transition:var(--transition);}/*!sc*/
+a.inline-link:after{content:'';display:block;width:0;height:1px;position:relative;bottom:0.37em;background-color:var(--first-color);-webkit-transition:var(--transition);transition:var(--transition);opacity:0.5;}/*!sc*/
+button{cursor:pointer;border:0;border-radius:0;}/*!sc*/
+input,textarea{border-radius:0;outline:0;}/*!sc*/
+input:focus,textarea:focus{outline:0;}/*!sc*/
+input:focus::-webkit-input-placeholder,textarea:focus::-webkit-input-placeholder,input:active::-webkit-input-placeholder,textarea:active::-webkit-input-placeholder{opacity:0.5;}/*!sc*/
+input:focus::-moz-placeholder,textarea:focus::-moz-placeholder,input:active::-moz-placeholder,textarea:active::-moz-placeholder{opacity:0.5;}/*!sc*/
+input:focus:-ms-input-placeholder,textarea:focus:-ms-input-placeholder,input:active:-ms-input-placeholder,textarea:active:-ms-input-placeholder{opacity:0.5;}/*!sc*/
+input:focus::placeholder,textarea:focus::placeholder,input:active::placeholder,textarea:active::placeholder{opacity:0.5;}/*!sc*/
+p{margin:0 0 var(--mb-1-5) 0;}/*!sc*/
+p:last-child,p:last-of-type{margin:0;}/*!sc*/
+p > a{display:inline-block;-webkit-text-decoration:none;text-decoration:none;-webkit-text-decoration-skip-ink:auto;text-decoration-skip-ink:auto;position:relative;-webkit-transition:var(--transition);transition:var(--transition);color:var(--first-color);}/*!sc*/
+p > a:hover,p > a:focus,p > a:active{color:var(--first-color);outline:0;}/*!sc*/
+p > a:hover:after,p > a:focus:after,p > a:active:after{width:100%;}/*!sc*/
+p > a:hover > *,p > a:focus > *,p > a:active > *{color:var(--first-color) !important;-webkit-transition:var(--transition);transition:var(--transition);}/*!sc*/
+p > a:after{content:'';display:block;width:0;height:1px;position:relative;bottom:0.37em;background-color:var(--first-color);-webkit-transition:var(--transition);transition:var(--transition);opacity:0.5;}/*!sc*/
+p > code{background-color:var(--light-navy);color:var(--white);font-size:var(--normal-font-size);border-radius:var(--border-radius);padding:0.3em 0.5em;}/*!sc*/
+ul.fancy-list{padding:0;margin:0;list-style:none;font-size:var(--h3-font-size);}/*!sc*/
+ul.fancy-list li{position:relative;padding-left:30px;margin-bottom:10px;}/*!sc*/
+ul.fancy-list li:before{content:'▹';position:absolute;left:0;color:var(--first-color);}/*!sc*/
+blockquote{border-left-color:var(--first-color);border-left-style:solid;border-left-width:1px;margin-left:0px;margin-right:0px;padding-left:1.5rem;}/*!sc*/
+blockquote p{font-style:italic;font-size:24px;}/*!sc*/
+hr{background-color:var(--lightest-navy);height:1px;border-width:0px;border-style:initial;border-color:initial;border-image:initial;margin:1rem;}/*!sc*/
+code{font-family:var(--font-mono);font-size:var(--h3-font-size);}/*!sc*/
+.skip-to-content{color:var(--first-color);background-color:transparent;border:1px solid var(--first-color);border-radius:var(--border-radius);font-size:var(--normal-font-size);font-family:var(--font-mono);line-height:1;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;-webkit-transition:var(--transition);transition:var(--transition);padding:1.25rem 1.75rem;position:absolute;top:auto;left:-999px;width:1px;height:1px;overflow:hidden;z-index:-99;}/*!sc*/
+.skip-to-content:hover,.skip-to-content:focus,.skip-to-content:active{background-color:var(--first-color-light);outline:none;}/*!sc*/
+.skip-to-content:after{display:none !important;}/*!sc*/
+.skip-to-content:focus,.skip-to-content:active{background-color:var(--first-color);color:var(--navy);top:0;left:0;width:auto;height:auto;overflow:auto;z-index:99;}/*!sc*/
+#logo{color:var(--first-color);}/*!sc*/
+.overline{color:var(--first-color);font-family:var(--font-mono);font-size:var(--h3-font-size);font-weight:400;}/*!sc*/
+.subtitle{color:var(--first-color);margin:0 0 20px 0;font-size:var(--h3-font-size);font-family:var(--font-mono);font-weight:400;line-height:1.5;}/*!sc*/
+@media (max-width:1080px){.subtitle{font-size:var(--normal-font-size);}}/*!sc*/
+@media (max-width:768px){.subtitle{font-size:var(--small-font-size);}}/*!sc*/
+.subtitle a{display:inline-block;-webkit-text-decoration:none;text-decoration:none;-webkit-text-decoration-skip-ink:auto;text-decoration-skip-ink:auto;position:relative;-webkit-transition:var(--transition);transition:var(--transition);color:var(--first-color);line-height:1.5;}/*!sc*/
+.subtitle a:hover,.subtitle a:focus,.subtitle a:active{color:var(--first-color);outline:0;}/*!sc*/
+.subtitle a:hover:after,.subtitle a:focus:after,.subtitle a:active:after{width:100%;}/*!sc*/
+.subtitle a:hover > *,.subtitle a:focus > *,.subtitle a:active > *{color:var(--first-color) !important;-webkit-transition:var(--transition);transition:var(--transition);}/*!sc*/
+.subtitle a:after{content:'';display:block;width:0;height:1px;position:relative;bottom:0.37em;background-color:var(--first-color);-webkit-transition:var(--transition);transition:var(--transition);opacity:0.5;}/*!sc*/
+.breadcrumb{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin-bottom:var(--mb-2-5);color:var(--first-color);}/*!sc*/
+.breadcrumb .arrow{display:block;margin-right:var(--mb-1-25);padding-top:4px;}/*!sc*/
+.breadcrumb a{display:inline-block;-webkit-text-decoration:none;text-decoration:none;-webkit-text-decoration-skip-ink:auto;text-decoration-skip-ink:auto;position:relative;-webkit-transition:var(--transition);transition:var(--transition);color:var(--first-color);font-family:var(--font-mono);font-size:var(--small-font-size);font-weight:600;line-height:1.5;text-transform:uppercase;-webkit-letter-spacing:0.1em;-moz-letter-spacing:0.1em;-ms-letter-spacing:0.1em;letter-spacing:0.1em;}/*!sc*/
+.breadcrumb a:hover,.breadcrumb a:focus,.breadcrumb a:active{color:var(--first-color);outline:0;}/*!sc*/
+.breadcrumb a:hover:after,.breadcrumb a:focus:after,.breadcrumb a:active:after{width:100%;}/*!sc*/
+.breadcrumb a:hover > *,.breadcrumb a:focus > *,.breadcrumb a:active > *{color:var(--first-color) !important;-webkit-transition:var(--transition);transition:var(--transition);}/*!sc*/
+.breadcrumb a:after{content:'';display:block;width:0;height:1px;position:relative;bottom:0.37em;background-color:var(--first-color);-webkit-transition:var(--transition);transition:var(--transition);opacity:0.5;}/*!sc*/
+.gatsby-image-outer-wrapper{height:100%;}/*!sc*/
+.fadeup-enter{opacity:0.01;-webkit-transform:translateY(20px);-ms-transform:translateY(20px);transform:translateY(20px);-webkit-transition:opacity 300ms var(--easing),-webkit-transform 300ms var(--easing);-webkit-transition:opacity 300ms var(--easing),transform 300ms var(--easing);transition:opacity 300ms var(--easing),transform 300ms var(--easing);}/*!sc*/
+.fadeup-enter-active{opacity:1;-webkit-transform:translateY(0px);-ms-transform:translateY(0px);transform:translateY(0px);-webkit-transition:opacity 300ms var(--easing),-webkit-transform 300ms var(--easing);-webkit-transition:opacity 300ms var(--easing),transform 300ms var(--easing);transition:opacity 300ms var(--easing),transform 300ms var(--easing);}/*!sc*/
+.fadedown-enter{opacity:0.01;-webkit-transform:translateY(-20px);-ms-transform:translateY(-20px);transform:translateY(-20px);-webkit-transition:opacity 300ms var(--easing),-webkit-transform 300ms var(--easing);-webkit-transition:opacity 300ms var(--easing),transform 300ms var(--easing);transition:opacity 300ms var(--easing),transform 300ms var(--easing);}/*!sc*/
+.fadedown-enter-active{opacity:1;-webkit-transform:translateY(0px);-ms-transform:translateY(0px);transform:translateY(0px);-webkit-transition:opacity 300ms var(--easing),-webkit-transform 300ms var(--easing);-webkit-transition:opacity 300ms var(--easing),transform 300ms var(--easing);transition:opacity 300ms var(--easing),transform 300ms var(--easing);}/*!sc*/
+.fade-enter{opacity:0;}/*!sc*/
+.fade-enter-active{opacity:1;-webkit-transition:opacity 300ms var(--easing);transition:opacity 300ms var(--easing);}/*!sc*/
+.fade-exit{opacity:1;}/*!sc*/
+.fade-exit-active{opacity:0;-webkit-transition:opacity 300ms var(--easing);transition:opacity 300ms var(--easing);}/*!sc*/
+.gatsby-highlight{background-color:#112340;color:#a2aabc;border-radius:var(--border-radius);margin:2em 0;padding:1.25em;overflow:auto;position:relative;font-family:var(--font-mono);font-size:var(--normal-font-size);}/*!sc*/
+.gatsby-highlight code[class*='language-'],.gatsby-highlight pre[class*='language-']{height:auto !important;font-size:var(--normal-font-size);line-height:1.5;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;tab-size:2;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none;}/*!sc*/
+.gatsby-highlight pre[class*='language-']{background-color:transparent;margin:0;padding:0;overflow:initial;float:left;min-width:100%;padding-top:2em;}/*!sc*/
+.gatsby-code-title{padding:1em 1.5em;font-family:var(--font-mono);font-size:var(--normal-font-size);background-color:#112340;color:#a2aabc;border-top-left-radius:var(--border-radius);border-top-right-radius:var(--border-radius);border-bottom:1px solid #1d2d50;}/*!sc*/
+.gatsby-code-title + .gatsby-highlight{margin-top:0;border-top-left-radius:0;border-top-right-radius:0;}/*!sc*/
+.gatsby-highlight-code-line{display:block;background-color:#1d2d50;border-left:2px solid var(--first-color);padding-left:calc(1em + 2px);padding-right:1em;margin-right:-1.35em;margin-left:-1.35em;}/*!sc*/
+.gatsby-highlight pre[class*='language-']::before{background:var(--lightest-navy);color:var(--white);font-size:var(--small-font-size);font-family:var(--font-mono);line-height:1.5;-webkit-letter-spacing:0.1em;-moz-letter-spacing:0.1em;-ms-letter-spacing:0.1em;letter-spacing:0.1em;text-transform:uppercase;border-radius:0 0 3px 3px;position:absolute;top:0;left:1.25rem;padding:0.25rem 0.5rem;}/*!sc*/
+.gatsby-highlight pre[class='language-javascript']::before{content:'js';}/*!sc*/
+.gatsby-highlight pre[class='language-js']::before{content:'js';}/*!sc*/
+.gatsby-highlight pre[class='language-jsx']::before{content:'jsx';}/*!sc*/
+.gatsby-highlight pre[class='language-graphql']::before{content:'GraphQL';}/*!sc*/
+.gatsby-highlight pre[class='language-html']::before{content:'html';}/*!sc*/
+.gatsby-highlight pre[class='language-css']::before{content:'css';}/*!sc*/
+.gatsby-highlight pre[class='language-mdx']::before{content:'mdx';}/*!sc*/
+.gatsby-highlight pre[class='language-shell']::before{content:'shell';}/*!sc*/
+.gatsby-highlight pre[class='language-sh']::before{content:'sh';}/*!sc*/
+.gatsby-highlight pre[class='language-bash']::before{content:'bash';}/*!sc*/
+.gatsby-highlight pre[class='language-yaml']::before{content:'yaml';}/*!sc*/
+.gatsby-highlight pre[class='language-markdown']::before{content:'md';}/*!sc*/
+.gatsby-highlight pre[class='language-json']::before,.gatsby-highlight pre[class='language-json5']::before{content:'json';}/*!sc*/
+.gatsby-highlight pre[class='language-diff']::before{content:'diff';}/*!sc*/
+.gatsby-highlight pre[class='language-text']::before{content:'text';}/*!sc*/
+.gatsby-highlight pre[class='language-flow']::before{content:'flow';}/*!sc*/
+.token{display:inline;}/*!sc*/
+.token.comment,.token.block-comment,.token.prolog,.token.doctype,.token.cdata{color:#8695b799;}/*!sc*/
+.token.punctuation{color:#a2aabc;}/*!sc*/
+.token.namespace,.token.deleted{color:#ef6b73;}/*!sc*/
+.token.function-name,.token.function,.token.class-name,.token.constant,.token.symbol{color:#ffd580;}/*!sc*/
+.token.attr-name,.token.operator,.token.rule{color:#ffae57;}/*!sc*/
+.token.keyword,.token.boolean,.token.number,.token.property{color:#c3a6ff;}/*!sc*/
+.token.tag,.token.selector,.token.important,.token.atrule,.token.builtin,.token.entity,.token.url{color:#5ccfe6;}/*!sc*/
+.token.string,.token.char,.token.attr-value,.token.regex,.token.variable,.token.inserted{color:#bae67e;}/*!sc*/
+.token.important,.token.bold{font-weight:600;}/*!sc*/
+.token.italic{font-style:italic;}/*!sc*/
+.token.entity{cursor:help;}/*!sc*/
+.namespace{opacity:0.7;}/*!sc*/
+data-styled.g1[id="sc-global-dQltfc1"]{content:"sc-global-dQltfc1,"}/*!sc*/
+.hAupKY{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;min-height:100vh;}/*!sc*/
+data-styled.g2[id="layout__StyledContent-sc-3byr4v-0"]{content:"hAupKY,"}/*!sc*/
+.bxGGiA{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:fixed;top:0;z-index:11;padding:0px 50px;width:100%;height:var(--nav-height);background-color:var(--body-color);-webkit-filter:none !important;filter:none !important;pointer-events:auto !important;-webkit-user-select:auto !important;-moz-user-select:auto !important;-ms-user-select:auto !important;user-select:auto !important;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);-webkit-transition:var(--transition);transition:var(--transition);}/*!sc*/
+@media (max-width:1080px){.bxGGiA{padding:0 40px;}}/*!sc*/
+@media (max-width:768px){.bxGGiA{padding:0 25px;}}/*!sc*/
+@media (prefers-reduced-motion:no-preference){}/*!sc*/
+data-styled.g4[id="nav__StyledHeader-sc-890euh-0"]{content:"bxGGiA,"}/*!sc*/
+.iBwTWz{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;width:100%;color:var(--first-color);font-family:var(--font-sans);counter-reset:item 0;z-index:12;}/*!sc*/
+.iBwTWz .logo{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+.iBwTWz .logo a{color:var(--first-color);width:42px;height:42px;}/*!sc*/
+.iBwTWz .logo a:hover svg,.iBwTWz .logo a:focus svg{fill:var(--first-color);}/*!sc*/
+.iBwTWz .logo a svg{fill:none;-webkit-transition:var(--transition);transition:var(--transition);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}/*!sc*/
+data-styled.g5[id="nav__StyledNav-sc-890euh-1"]{content:"iBwTWz,"}/*!sc*/
+.efBDTL{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}/*!sc*/
+@media (max-width:768px){.efBDTL{display:none;}}/*!sc*/
+.efBDTL ol{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:0;margin:0;list-style:none;}/*!sc*/
+.efBDTL ol li{margin:0 5px;position:relative;counter-increment:item 1;font-size:var(--normal-font-size);color:var(--first-color);}/*!sc*/
+.efBDTL ol li a{padding:10px;}/*!sc*/
+.efBDTL ol li a:before{content:'0' counter(item) '.';margin-right:5px;color:var(--first-color);font-size:var(--normal-font-size);text-align:right;}/*!sc*/
+.efBDTL .resume-button{color:var(--first-color);background-color:transparent;border:1px solid var(--first-color);border-radius:var(--border-radius);padding:0.75rem 1rem;font-size:var(--smaller-font-size);font-family:var(--font-mono);line-height:1;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;-webkit-transition:var(--transition);transition:var(--transition);margin-left:15px;font-size:var(--normal-font-size);}/*!sc*/
+.efBDTL .resume-button:hover,.efBDTL .resume-button:focus,.efBDTL .resume-button:active{background-color:var(--first-color-light);outline:none;}/*!sc*/
+.efBDTL .resume-button:after{display:none !important;}/*!sc*/
+data-styled.g6[id="nav__StyledLinks-sc-890euh-2"]{content:"efBDTL,"}/*!sc*/
+.gkOOEq{display:none;}/*!sc*/
+@media (max-width:768px){.gkOOEq{display:block;}}/*!sc*/
+data-styled.g7[id="menu__StyledMenu-sc-v03hpz-0"]{content:"gkOOEq,"}/*!sc*/
+.lqHwG{display:none;}/*!sc*/
+@media (max-width:768px){.lqHwG{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;z-index:10;margin-right:-15px;padding:15px;border:0;background-color:transparent;color:inherit;text-transform:none;-webkit-transition-timing-function:linear;transition-timing-function:linear;-webkit-transition-duration:0.15s;transition-duration:0.15s;-webkit-transition-property:opacity,filter;transition-property:opacity,filter;}}/*!sc*/
+.lqHwG .ham-box{display:inline-block;position:relative;width:var(--hamburger-width);height:24px;}/*!sc*/
+.lqHwG .ham-box-inner{position:absolute;top:50%;right:0;width:var(--hamburger-width);height:2px;border-radius:var(--border-radius);background-color:var(--body-color);-webkit-transition-duration:0.22s;transition-duration:0.22s;-webkit-transition-property:-webkit-transform;-webkit-transition-property:transform;transition-property:transform;-webkit-transition-delay:0s;transition-delay:0s;-webkit-transform:rotate(0deg);-ms-transform:rotate(0deg);transform:rotate(0deg);-webkit-transition-timing-function:cubic-bezier( 0.55,0.055,0.675,0.19 );transition-timing-function:cubic-bezier( 0.55,0.055,0.675,0.19 );}/*!sc*/
+.lqHwG .ham-box-inner:before,.lqHwG .ham-box-inner:after{content:'';display:block;position:absolute;left:auto;right:0;width:var(--hamburger-width);height:2px;border-radius:4px;background-color:var(--green);-webkit-transition-timing-function:ease;transition-timing-function:ease;-webkit-transition-duration:0.15s;transition-duration:0.15s;-webkit-transition-property:-webkit-transform;-webkit-transition-property:transform;transition-property:transform;}/*!sc*/
+.lqHwG .ham-box-inner:before{width:120%;top:-10px;opacity:1;-webkit-transition:var(--ham-before);transition:var(--ham-before);}/*!sc*/
+.lqHwG .ham-box-inner:after{width:80%;bottom:-10px;-webkit-transform:rotate(0);-ms-transform:rotate(0);transform:rotate(0);-webkit-transition:var(--ham-after);transition:var(--ham-after);}/*!sc*/
+data-styled.g8[id="menu__StyledHamburgerButton-sc-v03hpz-1"]{content:"lqHwG,"}/*!sc*/
+.cWOyek{display:none;}/*!sc*/
+@media (max-width:768px){.cWOyek{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:fixed;top:0;bottom:0;right:0;padding:50px 10px;width:min(75vw,400px);height:100vh;outline:0;background-color:var(--light-navy);box-shadow:-10px 0px 30px -15px var(--navy-shadow);z-index:9;-webkit-transform:translateX(100vw);-ms-transform:translateX(100vw);transform:translateX(100vw);visibility:hidden;-webkit-transition:var(--transition);transition:var(--transition);}}/*!sc*/
+.cWOyek nav{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;width:100%;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;color:var(--lightest-slate);font-family:var(--font-mono);text-align:center;}/*!sc*/
+.cWOyek ol{padding:0;margin:0;list-style:none;width:100%;}/*!sc*/
+.cWOyek ol li{position:relative;margin:0 auto 20px;counter-increment:item 1;font-size:var(--normal-font-size);}/*!sc*/
+@media (max-width:600px){.cWOyek ol li{margin:0 auto 10px;}}/*!sc*/
+.cWOyek ol li:before{content:'0' counter(item) '.';display:block;margin-bottom:5px;color:var(--first-color);font-size:var(--normal-font-size);}/*!sc*/
+.cWOyek ol a{display:inline-block;-webkit-text-decoration:none;text-decoration:none;-webkit-text-decoration-skip-ink:auto;text-decoration-skip-ink:auto;color:inherit;position:relative;-webkit-transition:var(--transition);transition:var(--transition);width:100%;padding:3px 20px 20px;}/*!sc*/
+.cWOyek ol a:hover,.cWOyek ol a:active,.cWOyek ol a:focus{color:var(--first-color);outline:0;}/*!sc*/
+.cWOyek .resume-link{color:var(--first-color);background-color:transparent;border:1px solid var(--first-color);border-radius:var(--border-radius);padding:1.25rem 1.75rem;font-size:var(--small-font-size);font-family:var(--font-mono);line-height:1;-webkit-text-decoration:none;text-decoration:none;cursor:pointer;-webkit-transition:var(--transition);transition:var(--transition);padding:18px 50px;margin:10% auto 0;width:-webkit-max-content;width:-moz-max-content;width:max-content;}/*!sc*/
+.cWOyek .resume-link:hover,.cWOyek .resume-link:focus,.cWOyek .resume-link:active{background-color:var(--first-color-light);outline:none;}/*!sc*/
+.cWOyek .resume-link:after{display:none !important;}/*!sc*/
+data-styled.g9[id="menu__StyledSidebar-sc-v03hpz-2"]{content:"cWOyek,"}/*!sc*/
+.ienTSp{width:40px;position:fixed;bottom:0;left:40px;right:auto;z-index:10;color:var(--first-color);}/*!sc*/
+@media (max-width:1080px){.ienTSp{left:20px;right:auto;}}/*!sc*/
+@media (max-width:768px){.ienTSp{display:none;}}/*!sc*/
+.kZhrwh{width:40px;position:fixed;bottom:0;left:auto;right:40px;z-index:10;color:var(--first-color);}/*!sc*/
+@media (max-width:1080px){.kZhrwh{left:auto;right:20px;}}/*!sc*/
+@media (max-width:768px){.kZhrwh{display:none;}}/*!sc*/
+data-styled.g10[id="side__StyledSideElement-sc-iwj25o-0"]{content:"ienTSp,kZhrwh,"}/*!sc*/
+.kceUvX{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin:0;padding:0;list-style:none;}/*!sc*/
+.kceUvX:after{content:'';display:block;width:1px;height:90px;margin:0 auto;background-color:var(--first-color);}/*!sc*/
+.kceUvX li:last-of-type{margin-bottom:20px;}/*!sc*/
+.kceUvX li a{padding:10px;}/*!sc*/
+.kceUvX li a:hover,.kceUvX li a:focus{-webkit-transform:translateY(-3px);-ms-transform:translateY(-3px);transform:translateY(-3px);}/*!sc*/
+.kceUvX li a svg{width:1.5rem;height:1.5rem;}/*!sc*/
+data-styled.g11[id="social__StyledSocialList-sc-lk9o2l-0"]{content:"kceUvX,"}/*!sc*/
+.bzLilS{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;position:relative;}/*!sc*/
+.bzLilS:after{content:'';display:block;width:1px;height:90px;margin:0 auto;background-color:var(--first-color);}/*!sc*/
+.bzLilS a{margin:20px auto;padding:10px;font-family:var(--font-mono);font-size:var(--small-font-size);line-height:var(--h1-font-size);-webkit-letter-spacing:0.1em;-moz-letter-spacing:0.1em;-ms-letter-spacing:0.1em;letter-spacing:0.1em;-webkit-writing-mode:vertical-rl;-ms-writing-mode:tb-rl;writing-mode:vertical-rl;}/*!sc*/
+.bzLilS a:hover,.bzLilS a:focus{-webkit-transform:translateY(-3px);-ms-transform:translateY(-3px);transform:translateY(-3px);}/*!sc*/
+data-styled.g12[id="email__StyledLinkWrapper-sc-1mmfcic-0"]{content:"bzLilS,"}/*!sc*/
+.fMYZyU{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:center;-webkit-justify-content:center;-ms-flex-pack:center;justify-content:center;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;height:auto;min-height:70px;padding:15px;text-align:center;}/*!sc*/
+data-styled.g13[id="footer__StyledFooter-sc-1kg96ub-0"]{content:"fMYZyU,"}/*!sc*/
+.hANWLx{display:none;}/*!sc*/
+@media (max-width:768px){.hANWLx{display:block;width:100%;max-width:270px;margin:0 auto 10px;color:var(--first-color);}}/*!sc*/
+.hANWLx ul{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-box-pack:justify;-webkit-justify-content:space-between;-ms-flex-pack:justify;justify-content:space-between;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;padding:0;margin:0;list-style:none;}/*!sc*/
+.hANWLx ul a{padding:var(--mb-1-25);}/*!sc*/
+.hANWLx ul a svg{width:20px;height:20px;}/*!sc*/
+data-styled.g14[id="footer__StyledSocialLinks-sc-1kg96ub-1"]{content:"hANWLx,"}/*!sc*/
+.hWbUCU{color:var(--first-color);font-family:var(--font-mono);font-size:var(--small-font-size);line-height:1;}/*!sc*/
+.hWbUCU a{padding:10px;}/*!sc*/
+.hWbUCU .github-stats{margin-top:var(--mb-1);}/*!sc*/
+.hWbUCU .github-stats > span{display:-webkit-inline-box;display:-webkit-inline-flex;display:-ms-inline-flexbox;display:inline-flex;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;margin:0 var(--mb-0-5);}/*!sc*/
+.hWbUCU .github-stats svg{display:inline-block;margin-right:var(--mb-0-25);width:14px;height:14px;}/*!sc*/
+data-styled.g15[id="footer__StyledCredit-sc-1kg96ub-2"]{content:"hWbUCU,"}/*!sc*/
+.gZohRf{max-width:1000px;}/*!sc*/
+data-styled.g44[id="post__StyledPostContainer-sc-1i2iyb2-0"]{content:"gZohRf,"}/*!sc*/
+.glYwzA{margin-bottom:50px;}/*!sc*/
+.glYwzA .tag{margin-right:10px;}/*!sc*/
+data-styled.g45[id="post__StyledPostHeader-sc-1i2iyb2-1"]{content:"glYwzA,"}/*!sc*/
+.cnLtgJ{margin-bottom:100px;}/*!sc*/
+.cnLtgJ h1,.cnLtgJ h2,.cnLtgJ h3,.cnLtgJ h4,.cnLtgJ h5,.cnLtgJ h6{margin:2em 0 1em;}/*!sc*/
+.cnLtgJ h1{font-size:var(--h1-font-size);}/*!sc*/
+.cnLtgJ h2{font-size:var(--h2-font-size);}/*!sc*/
+.cnLtgJ h3{font-size:var(--h3-font-size);}/*!sc*/
+.cnLtgJ h4{font-size:var(--h4-font-size);}/*!sc*/
+.cnLtgJ p{margin:1em 0;line-height:1.5;color:var(--text-color);font-size:var(--normal-font-size);}/*!sc*/
+.cnLtgJ li{font-size:var(--normal-font-size);}/*!sc*/
+.cnLtgJ a{display:inline-block;-webkit-text-decoration:none;text-decoration:none;-webkit-text-decoration-skip-ink:auto;text-decoration-skip-ink:auto;position:relative;-webkit-transition:var(--transition);transition:var(--transition);color:var(--first-color);}/*!sc*/
+.cnLtgJ a:hover,.cnLtgJ a:focus,.cnLtgJ a:active{color:var(--first-color);outline:0;}/*!sc*/
+.cnLtgJ a:hover:after,.cnLtgJ a:focus:after,.cnLtgJ a:active:after{width:100%;}/*!sc*/
+.cnLtgJ a:hover > *,.cnLtgJ a:focus > *,.cnLtgJ a:active > *{color:var(--first-color) !important;-webkit-transition:var(--transition);transition:var(--transition);}/*!sc*/
+.cnLtgJ a:after{content:'';display:block;width:0;height:1px;position:relative;bottom:0.37em;background-color:var(--first-color);-webkit-transition:var(--transition);transition:var(--transition);opacity:0.5;}/*!sc*/
+.cnLtgJ code{background-color:var(--lightest-navy);color:var(--lightest-slate);border-radius:var(--border-radius);font-size:var(--normal-font-size);padding:0.2em 0.4em;}/*!sc*/
+.cnLtgJ pre code{background-color:transparent;padding:0;}/*!sc*/
+data-styled.g46[id="post__StyledPostContent-sc-1i2iyb2-2"]{content:"cnLtgJ,"}/*!sc*/
+</style><style>.gatsby-image-wrapper{position:relative;overflow:hidden}.gatsby-image-wrapper picture.object-fit-polyfill{position:static!important}.gatsby-image-wrapper img{bottom:0;height:100%;left:0;margin:0;max-width:none;padding:0;position:absolute;right:0;top:0;width:100%;object-fit:cover}.gatsby-image-wrapper [data-main-image]{opacity:0;transform:translateZ(0);transition:opacity .25s linear;will-change:opacity}.gatsby-image-wrapper-constrained{display:inline-block;vertical-align:top}</style><noscript><style>.gatsby-image-wrapper noscript [data-main-image]{opacity:1!important}.gatsby-image-wrapper [data-placeholder-image]{opacity:0!important}</style></noscript><script type="module">const e="undefined"!=typeof HTMLImageElement&&"loading"in HTMLImageElement.prototype;e&&document.body.addEventListener("load",(function(e){if(void 0===e.target.dataset.mainImage)return;if(void 0===e.target.dataset.gatsbyImageSsr)return;const t=e.target;let a=null,n=t;for(;null===a&&n;)void 0!==n.parentNode.dataset.gatsbyImageWrapper&&(a=n.parentNode),n=n.parentNode;const o=a.querySelector("[data-placeholder-image]"),r=new Image;r.src=t.currentSrc,r.decode().catch((()=>{})).then((()=>{t.style.opacity=1,o&&(o.style.opacity=0,o.style.transition="opacity 500ms linear")}))}),!0);</script><link rel="sitemap" type="application/xml" href="/sitemap/sitemap-index.xml"/><link rel="icon" href="/favicon-32x32.png?v=4b7bc1b127cce4a57d753c9cc6ff3e0f" type="image/png"/><link rel="manifest" href="/manifest.webmanifest" crossorigin="anonymous"/><link rel="apple-touch-icon" sizes="48x48" href="/icons/icon-48x48.png?v=4b7bc1b127cce4a57d753c9cc6ff3e0f"/><link rel="apple-touch-icon" sizes="72x72" href="/icons/icon-72x72.png?v=4b7bc1b127cce4a57d753c9cc6ff3e0f"/><link rel="apple-touch-icon" sizes="96x96" href="/icons/icon-96x96.png?v=4b7bc1b127cce4a57d753c9cc6ff3e0f"/><link rel="apple-touch-icon" sizes="144x144" href="/icons/icon-144x144.png?v=4b7bc1b127cce4a57d753c9cc6ff3e0f"/><link rel="apple-touch-icon" sizes="192x192" href="/icons/icon-192x192.png?v=4b7bc1b127cce4a57d753c9cc6ff3e0f"/><link rel="apple-touch-icon" sizes="256x256" href="/icons/icon-256x256.png?v=4b7bc1b127cce4a57d753c9cc6ff3e0f"/><link rel="apple-touch-icon" sizes="384x384" href="/icons/icon-384x384.png?v=4b7bc1b127cce4a57d753c9cc6ff3e0f"/><link rel="apple-touch-icon" sizes="512x512" href="/icons/icon-512x512.png?v=4b7bc1b127cce4a57d753c9cc6ff3e0f"/><link rel="preconnect" href="https://www.google-analytics.com"/><link rel="dns-prefetch" href="https://www.google-analytics.com"/><link as="script" rel="preload" href="/webpack-runtime-a4d007cd506450a28a46.js"/><link as="script" rel="preload" href="/framework-789315e08ec189f5b6ac.js"/><link as="script" rel="preload" href="/app-87f2faddc3f19bb031d1.js"/><link as="script" rel="preload" href="/546641dfde76ed00139ea2c3eae09499c5f2164a-104afb06b92282187f95.js"/><link as="script" rel="preload" href="/component---src-templates-post-js-d6be7b9e56696eab6d3b.js"/><link as="fetch" rel="preload" href="/page-data/pensieve/react-001/page-data.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/1994492073.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/2273691282.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/3825832676.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/sq/d/4162897811.json" crossorigin="anonymous"/><link as="fetch" rel="preload" href="/page-data/app-data.json" crossorigin="anonymous"/></head><body class=""><div id="___gatsby"><div style="outline:none" tabindex="-1" id="gatsby-focus-wrapper"><div id="root"><a class="skip-to-content" href="#content">Skip to Content</a><div class="layout__StyledContent-sc-3byr4v-0 hAupKY"><header class="nav__StyledHeader-sc-890euh-0 bxGGiA"><nav class="nav__StyledNav-sc-890euh-1 iBwTWz"><div class="logo" tabindex="-1"><a aria-label="home" href="/"><svg id="logo" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 84 96"><title>Logo</title><g transform="translate(-8.000000, -2.000000)"><g transform="translate(11.000000, 5.000000)"><g transform="translate(20.000000, 27.000000), scale(1.5)"><path d="M0 0.663L9.401 0.663L15.882 7.146L15.882 14.127L5.307 3.608L5.274 22.969L0 22.969z" fill="currentColor"></path><path d="M23.631 22.969L14.232 22.969L7.752 16.485L7.752 9.501L18.327 20.018L18.359 0.662L23.631 0.662z" fill="currentColor"></path></g><polygon id="Shape" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" points="39 0 0 22 0 67 39 90 78 68 78 23"></polygon></g></g></svg></a></div><div class="nav__StyledLinks-sc-890euh-2 efBDTL"><ol><li><a href="/#about">About</a></li><li><a href="/#jobs">Experience</a></li><li><a href="/#projects">Work</a></li><li><a href="/#contact">Contact</a></li><li><a href="/pensieve">Pensieve</a></li></ol><div><a class="resume-button" href="/resume.pdf" target="_blank" rel="noopener noreferrer" style="font-family:var(--font-sans)">Resume</a></div></div><div class="menu__StyledMenu-sc-v03hpz-0 gkOOEq"><div><button aria-label="Menu" class="menu__StyledHamburgerButton-sc-v03hpz-1 lqHwG"><div class="ham-box"><div class="ham-box-inner"></div></div></button><aside aria-hidden="true" tabindex="-1" class="menu__StyledSidebar-sc-v03hpz-2 cWOyek"><nav><ol><li><a href="/#about">About</a></li><li><a href="/#jobs">Experience</a></li><li><a href="/#projects">Work</a></li><li><a href="/#contact">Contact</a></li><li><a href="/pensieve">Pensieve</a></li></ol><a href="/resume.pdf" class="resume-link">Resume</a></nav></aside></div></div></nav></header><div orientation="left" class="side__StyledSideElement-sc-iwj25o-0 ienTSp"><ul class="social__StyledSocialList-sc-lk9o2l-0 kceUvX"><li><a href="https://github.com/nipunaupeksha" aria-label="GitHub" target="_blank" rel="noreferrer"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li><li><a href="https://www.instagram.com/nipuna_upeksha" aria-label="Instagram" target="_blank" rel="noreferrer"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><title>Instagram</title><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a></li><li><a href="https://twitter.com/NipunaUpeksha" aria-label="Twitter" target="_blank" rel="noreferrer"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><title>Twitter</title><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a></li><li><a href="https://www.linkedin.com/in/nipuna-upeksha" aria-label="LinkedIn" target="_blank" rel="noreferrer"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><title>LinkedIn</title><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a></li><li><a href="https://stackoverflow.com/users/5941309/nipuna-upeksha" aria-label="StackOverflow" target="_blank" rel="noreferrer"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-stackoverflow"><title>StackOverflow</title><path d="M17.24 19.399v-4.804h1.6V21H4.381v-6.405h1.598v4.804H17.24zM7.582 17.8h8.055v-1.604H7.582V17.8zm.195-3.64 7.859 1.641.34-1.552-7.861-1.642-.338 1.553zm1.018-3.794 7.281 3.398.678-1.463-7.281-3.399-.678 1.454v.01zm2.037-3.589 6.166 5.142 1.018-1.216-6.162-5.14-1.016 1.213-.006.001zm3.982-3.778-1.311.969 4.803 6.454 1.313-.971-4.807-6.452h.002z"></path></svg></a></li><li><a href="https://medium.com/@nipunaupeksha" aria-label="Medium" target="_blank" rel="noreferrer"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-medium"><title>Medium</title><path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-2.046 4.265-.966.925a.28.28 0 0 0-.106.271v6.801a.28.28 0 0 0 .106.271l.942.926v.204h-4.741v-.204l.977-.948c.097-.096.097-.125.097-.271V9.742l-2.716 6.896h-.368L8.018 9.742v4.622a.644.644 0 0 0 .176.531l1.271 1.541v.203H5.861v-.203l1.271-1.541a.618.618 0 0 0 .164-.531V9.02a.468.468 0 0 0-.152-.395l-1.13-1.36v-.203H9.52l2.71 5.943 2.382-5.943h3.343v.203z"></path></svg></a></li></ul></div><div orientation="right" class="side__StyledSideElement-sc-iwj25o-0 kZhrwh"><div class="email__StyledLinkWrapper-sc-1mmfcic-0 bzLilS"><a href="mailto:nipuna.upeksha@gmail.com">nipuna.upeksha@gmail.com</a></div></div><div id="content"><main class="post__StyledPostContainer-sc-1i2iyb2-0 gZohRf"><span class="breadcrumb"><span class="arrow">←</span><a style="font-family:var(--font-sans)" href="/pensieve">All memories</a></span><header class="post__StyledPostHeader-sc-1i2iyb2-1 glYwzA"><h1 class="medium-heading">React Class Components and Lifecycle Methods</h1><p class="subtitle"><time>August 19, 2022</time><span> — </span><a class="tag" href="/pensieve/tags/react/">#<!-- -->React</a><a class="tag" href="/pensieve/tags/java-script/">#<!-- -->JavaScript</a></p></header><div class="post__StyledPostContent-sc-1i2iyb2-2 cnLtgJ"><p>Although using <em>class components</em> is something that most React developers stay away from, learning them can help you in the long run. In this article, we will be creating a small React application using <em>class components</em> while learning the <em>lifecycle methods</em>.</p>
+<h2>Creating React App</h2>
+<p>To scaffold our react app, simply go to your terminal and type <code class="language-text">npx create-react-app robot-rolodex</code>. After scaffolding the project open it using your IDE. In my case, I will be using VS Code for <code class="language-text">robot-rolodex</code> project. Therefore, I can simply use the following command, <code class="language-text">code robot-rolodex</code>. After opening it you will see the following folder structure.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">.</span>
+├── README.md
+├── node_modules
+├── package-lock.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+└── src
+    ├── App.css
+    ├── App.js
+    ├── App.test.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    ├── reportWebVitals.js
+    └── setupTests.js</code></pre></div>
+<h2>First React Component</h2>
+<p>Now, go to <code class="language-text">./src/App.js</code> file and check it. You can see that it is written using a <em>functional component</em>.</p>
+<div class="gatsby-code-title">./src/App.js</div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> logo <span class="token keyword">from</span> <span class="token string">'./logo.svg'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./App.css'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">function</span> <span class="token function">App</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span>header className<span class="token operator">=</span><span class="token string">"App-header"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token punctuation">{</span>logo<span class="token punctuation">}</span> className<span class="token operator">=</span><span class="token string">"App-logo"</span> alt<span class="token operator">=</span><span class="token string">"logo"</span> <span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>p<span class="token operator">></span>
+          Edit <span class="token operator">&lt;</span>code<span class="token operator">></span>src<span class="token operator">/</span>App<span class="token punctuation">.</span>js<span class="token operator">&lt;</span><span class="token operator">/</span>code<span class="token operator">></span> and save to reload<span class="token punctuation">.</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+        <span class="token operator">&lt;</span>a
+          className<span class="token operator">=</span><span class="token string">"App-link"</span>
+          href<span class="token operator">=</span><span class="token string">"https://reactjs.org"</span>
+          target<span class="token operator">=</span><span class="token string">"_blank"</span>
+          rel<span class="token operator">=</span><span class="token string">"noopener noreferrer"</span>
+        <span class="token operator">></span>
+          Learn React
+        <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>header<span class="token operator">></span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre></div>
+<p>Therefore, first, we will convert that <em>functional component</em> into a <em>class component</em>. To do that, we need to import <em>Component</em> from the <em>react</em> library. Then, we will change the <em>function</em> to <em>class</em> and use <em>inheritance</em> to make the <strong>App</strong> to a <em>class component</em>. After that, we will put the whole <code class="language-text">return</code> block inside the class method <code class="language-text">render()</code> to render.</p>
+<div class="gatsby-code-title">./src/App.js</div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> logo <span class="token keyword">from</span> <span class="token string">'./logo.svg'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./App.css'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>header className<span class="token operator">=</span><span class="token string">"App-header"</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token punctuation">{</span>logo<span class="token punctuation">}</span> className<span class="token operator">=</span><span class="token string">"App-logo"</span> alt<span class="token operator">=</span><span class="token string">"logo"</span> <span class="token operator">/</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>p<span class="token operator">></span>
+            Edit <span class="token operator">&lt;</span>code<span class="token operator">></span>src<span class="token operator">/</span>App<span class="token punctuation">.</span>js<span class="token operator">&lt;</span><span class="token operator">/</span>code<span class="token operator">></span> and save to reload<span class="token punctuation">.</span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+          <span class="token operator">&lt;</span>a
+            className<span class="token operator">=</span><span class="token string">"App-link"</span>
+            href<span class="token operator">=</span><span class="token string">"https://reactjs.org"</span>
+            target<span class="token operator">=</span><span class="token string">"_blank"</span>
+            rel<span class="token operator">=</span><span class="token string">"noopener noreferrer"</span>
+          <span class="token operator">></span>
+            Learn React
+          <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>header<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre></div>
+<p>Now, to check whether this is working or not, type <code class="language-text">yarn start</code> or <code class="language-text">npm start</code> in your terminal. <code class="language-text">yarn</code> and <code class="language-text">npm</code> are both package managers, but I prefer using <code class="language-text">yarn</code> in React projects.</p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/78efb8dae0f903510c0d87c02d880c00/c71fc/working.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 59.42857142857143%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABPUlEQVQoz6VSu07DMBTNz5B34kfs2KGt3dC3qAQLYkNCLCxIrJ1ZGGBnYeFHD7KjokqlpRHD0bF9r47PfQTGtBgMxxgOLbhQoJUG4zUYl6iE9syqGpwIiEqDUgHOa1g7wfpiCWMnaM4N5ss17HiGICM1MqLgOKcaOWs6phqFPysUTKMgCiVtkBPlkRKFxHEpEefCs0MQZRW2CFO+g+4eZQJhwhC6uM/pODqAwKkfQxgTJFQjiimihOGv/KOCUcpRmhUGjxvouydkuvVv/xBkaO6fMX/9xOLtC/zy1juOc9lP0PWiK5dC3jxg9vKBdvMOOr3u73Ar9tPoQqIYLVFOr3AWUz+o3fjJDtOyhlAWQtuOlYFsWlTK/Cp0UslpIZFRDWpXIKOF31X3US/BvZId3D76naz24r0cHpz+EYffAml5Jlc2f9kAAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="working"
+        title="working"
+        src="/static/78efb8dae0f903510c0d87c02d880c00/39600/working.png"
+        srcset="/static/78efb8dae0f903510c0d87c02d880c00/1aaec/working.png 175w,
+/static/78efb8dae0f903510c0d87c02d880c00/98287/working.png 350w,
+/static/78efb8dae0f903510c0d87c02d880c00/39600/working.png 700w,
+/static/78efb8dae0f903510c0d87c02d880c00/57cd1/working.png 1050w,
+/static/78efb8dae0f903510c0d87c02d880c00/4af54/working.png 1400w,
+/static/78efb8dae0f903510c0d87c02d880c00/c71fc/working.png 2880w"
+        sizes="(max-width: 700px) 100vw, 700px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h2>State of a Component</h2>
+<p>As you have seen, <code class="language-text">render()</code> is a class method that is in all the classes. And like <code class="language-text">render()</code> there is another method named <code class="language-text">constructor()</code> which is available to all the classes as well. Looking at our code, we can see that most of the code in our <code class="language-text">App</code> component are hard coded. To change that, we can try using <code class="language-text">constructor()</code> and the <code class="language-text">state</code> of the components.
+Let's first change the <code class="language-text">App</code> component code and analyze it next.</p>
+<div class="gatsby-code-title">./src/App.js</div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> logo <span class="token keyword">from</span> <span class="token string">'./logo.svg'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./App.css'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Nipuna'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>header className<span class="token operator">=</span><span class="token string">"App-header"</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token punctuation">{</span>logo<span class="token punctuation">}</span> className<span class="token operator">=</span><span class="token string">"App-logo"</span> alt<span class="token operator">=</span><span class="token string">"logo"</span> <span class="token operator">/</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>p<span class="token operator">></span>
+            Hi<span class="token operator">!</span> <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>name<span class="token punctuation">}</span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+          <span class="token operator">&lt;</span>button<span class="token operator">></span>Change name<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>header<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre></div>
+<p>As you can see there is a code line with <code class="language-text">super();</code> inside the constructor. This is to address the <code class="language-text">super</code> class of this <code class="language-text">App</code> class component which is <code class="language-text">Component</code> class. We use this to access the <code class="language-text">Component</code> class before running the other code lines inside the <code class="language-text">constructor()</code>.</p>
+<p>And inside <code class="language-text">constructor()</code> method, you can see our <code class="language-text">state</code> variable which is an object for accessing various data inside the component. The <code class="language-text">state</code> variable comes into play when changing the value of a variable declared in the <code class="language-text">state</code> object. For example, assume we need to change the <code class="language-text">name</code> value of the <code class="language-text">state</code> variable when clicking a <code class="language-text">button</code>, we need to use the <code class="language-text">state</code> variable.</p>
+<p>But one important fact related to <code class="language-text">state</code> variable is you cannot directly change the value inside it. For example, if you run the following code, the value between <code class="language-text">&lt;p>...&lt;/p></code> tag won't be changing, even if it prints the correct value in the console.</p>
+<div class="gatsby-code-title">./src/App.js</div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> logo <span class="token keyword">from</span> <span class="token string">'./logo.svg'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./App.css'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Nipuna'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>header className<span class="token operator">=</span><span class="token string">"App-header"</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token punctuation">{</span>logo<span class="token punctuation">}</span> className<span class="token operator">=</span><span class="token string">"App-logo"</span> alt<span class="token operator">=</span><span class="token string">"logo"</span> <span class="token operator">/</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>p<span class="token operator">></span>
+            Hi<span class="token operator">!</span> <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>name<span class="token punctuation">}</span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+          <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">"Upeksha"</span><span class="token punctuation">;</span>
+            console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>name<span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">></span>Change name<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>header<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/4e8c18df74adbb55d17392958fc6b9a9/c71fc/change-state-not-working.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 59.42857142857143%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABsUlEQVQoz42Sy47TMBSG8xiIYZqkaR3fcvElcTJtJ62qGS5CiBUbxAMwD8ACJPaI3bwBT/qjJE7VTEGaxSfb5/h8ObEd7HZ7bDYdtpsOtmqhbQtjHYytYasG2tbQ1kHnFtY4FIWB0hW67oh3+zu0uwPq9hb3b96jO9whYEyC8QxC5F7UwFqHum6GQmNqlKWF4Pmwp8gVNjcdlK7BMwVtHJzbwtoGqjQI1rRAKgwI11iz0qNmEKaQ9nmukfMCR5Ghug7hFhGqRQR19Qrq6hryxUsEhCtQac+oBvqPjHMfF2Mu5SXCcIk4ShD3Y7hEuIgR+VhAWDkUjAKL1HfDzW6YT7kpT0WJKF4hPON8fRKOhRqsaOA+P2D/7RfU208z6bCP98IEUTSKoiiZMRcyBeEOOP58xOvff7B9+A5CMtCsOgl5pgdhOAmf8KRDA5o7mI9fcPP1B4rjB6R83iGT6nnCqaC/JCENqnYPQgt/bubil58t7EdZNoMw9TIqLy/lfwTkdOh2FHjpeopP+GdD/bMJo+SfBIQVoELPkQYiry7jQoNLBcok4uVqgKQcySodWK0p/gL04m1TBk+fWAAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="change state not working"
+        title="change state not working"
+        src="/static/4e8c18df74adbb55d17392958fc6b9a9/39600/change-state-not-working.png"
+        srcset="/static/4e8c18df74adbb55d17392958fc6b9a9/1aaec/change-state-not-working.png 175w,
+/static/4e8c18df74adbb55d17392958fc6b9a9/98287/change-state-not-working.png 350w,
+/static/4e8c18df74adbb55d17392958fc6b9a9/39600/change-state-not-working.png 700w,
+/static/4e8c18df74adbb55d17392958fc6b9a9/57cd1/change-state-not-working.png 1050w,
+/static/4e8c18df74adbb55d17392958fc6b9a9/4af54/change-state-not-working.png 1400w,
+/static/4e8c18df74adbb55d17392958fc6b9a9/c71fc/change-state-not-working.png 2880w"
+        sizes="(max-width: 700px) 100vw, 700px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>So, why is this happening? This is happening due to the way that React determines on when to re-render a component. React determines to re-render an component, if the <code class="language-text">state</code> has been completely changed or the <code class="language-text">state</code> is a complete different object in the memory.
+To understand what React mean by completely different <code class="language-text">state</code>, look at the following console logs.</p>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token comment">//case 1</span>
+<span class="token operator">&lt;&lt;</span> <span class="token keyword">const</span> obj1 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Nipuna'</span><span class="token punctuation">}</span>
+
+<span class="token operator">&lt;&lt;</span> <span class="token keyword">const</span> obj2  <span class="token operator">=</span>  obj1
+
+<span class="token operator">&lt;&lt;</span> obj1 <span class="token operator">===</span> obj2
+<span class="token operator">>></span> <span class="token boolean">true</span>
+
+<span class="token operator">&lt;&lt;</span> obj2<span class="token punctuation">.</span>name <span class="token operator">=</span> <span class="token string">'Upeksha'</span>
+
+<span class="token operator">&lt;&lt;</span> obj1
+<span class="token operator">>></span> <span class="token punctuation">{</span><span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Upeksha'</span><span class="token punctuation">}</span>
+
+<span class="token operator">&lt;&lt;</span> obj1 <span class="token operator">===</span> obj2
+<span class="token operator">>></span> <span class="token boolean">true</span>
+
+<span class="token comment">//case 2</span>
+<span class="token operator">&lt;&lt;</span> <span class="token keyword">const</span> obj3 <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">assign</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> obj1<span class="token punctuation">)</span>
+
+<span class="token operator">&lt;&lt;</span> obj3
+<span class="token operator">>></span> <span class="token string">'Upeksha'</span>
+
+<span class="token operator">&lt;&lt;</span> obj1 <span class="token operator">===</span> obj3
+<span class="token operator">>></span> <span class="token boolean">false</span>
+
+<span class="token comment">// case 3</span>
+<span class="token operator">&lt;&lt;</span> <span class="token keyword">const</span> obj4 <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Upeksha'</span><span class="token punctuation">}</span>
+
+<span class="token operator">&lt;&lt;</span> obj1 <span class="token operator">===</span> obj4
+<span class="token operator">>></span> <span class="token boolean">false</span></code></pre></div>
+<p>In above cases, the objects are completely changed in <em>case 2</em> and <em>case 3</em> only. Like that, the React determines re-rendering if the <code class="language-text">state</code> is completely changed.</p>
+<p>So how can we do that? To do that, React provides a special method named <code class="language-text">setState()</code>.</p>
+<div class="gatsby-code-title">./src/App.js</div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Component<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> logo <span class="token keyword">from</span> <span class="token string">'./logo.svg'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./App.css'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Nipuna'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>header className<span class="token operator">=</span><span class="token string">"App-header"</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token punctuation">{</span>logo<span class="token punctuation">}</span> className<span class="token operator">=</span><span class="token string">"App-logo"</span> alt<span class="token operator">=</span><span class="token string">"logo"</span> <span class="token operator">/</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>p<span class="token operator">></span>
+            Hi<span class="token operator">!</span> <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>name<span class="token punctuation">}</span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+          <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">=></span><span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Upeksha"</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">></span>Change name<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>header<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/9cdb69a2e1628b8ae4a3740fec7050fd/c71fc/set-state.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 59.42857142857143%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABOElEQVQoz51Ty0rDQBTNryg0aZpM5pVkJn0kjTExlSKKSF2ICxduBBd+gQiu3IoLd/3SI5lQKaJJ7eJw5nLvPdzXWGmaYzKdYzrNIEIFJjW4iMFFBBlqw1zGEDRCKDUYkxAiRpYVWBY1JmkBlaSo6iWyeQnLozE8qtCwzzR8nrTMNIh5KxCuQahCwBL4VBmMqILb5AURXD/EKIgMLMeT2MAeiS20tuOFrd34TUzLzh+whn6ILthDatgkuAx98b8KNsktC5BZjfHdE/TNAzyVf/v+JWhAItgOhb59xMnbGuXrJ8TpqrdKq7tdhvj6HuXLB46f38EXV/sLNsvYtE+qS7jjsnd+O8xQmpPIj2rMsspsey/Bn+JnFyuUi3MMXL6/4PY2DwYBDp2t8+nY9E4VuqT9DX0n0wh+AbZueQ+FGUHzAAAAAElFTkSuQmCC'); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="set state"
+        title="set state"
+        src="/static/9cdb69a2e1628b8ae4a3740fec7050fd/39600/set-state.png"
+        srcset="/static/9cdb69a2e1628b8ae4a3740fec7050fd/1aaec/set-state.png 175w,
+/static/9cdb69a2e1628b8ae4a3740fec7050fd/98287/set-state.png 350w,
+/static/9cdb69a2e1628b8ae4a3740fec7050fd/39600/set-state.png 700w,
+/static/9cdb69a2e1628b8ae4a3740fec7050fd/57cd1/set-state.png 1050w,
+/static/9cdb69a2e1628b8ae4a3740fec7050fd/4af54/set-state.png 1400w,
+/static/9cdb69a2e1628b8ae4a3740fec7050fd/c71fc/set-state.png 2880w"
+        sizes="(max-width: 700px) 100vw, 700px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>The <code class="language-text">setState()</code> method can have two parameters, the value we need to change in the <code class="language-text">state</code> variable and the <code class="language-text">callback function</code>. Although, the second parameter is optional in <code class="language-text">setState()</code> method, using it can help other developers understand the code effortlessly because it will only be running after all the <code class="language-text">state</code> changes are done.</p>
+<div class="gatsby-code-title">./src/App.js</div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> logo <span class="token keyword">from</span> <span class="token string">'./logo.svg'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./App.css'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">'Nipuna'</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>header className<span class="token operator">=</span><span class="token string">"App-header"</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>img src<span class="token operator">=</span><span class="token punctuation">{</span>logo<span class="token punctuation">}</span> className<span class="token operator">=</span><span class="token string">"App-logo"</span> alt<span class="token operator">=</span><span class="token string">"logo"</span> <span class="token operator">/</span><span class="token operator">></span>
+          <span class="token operator">&lt;</span>p<span class="token operator">></span>
+            Hi<span class="token operator">!</span> <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>name<span class="token punctuation">}</span>
+          <span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">></span>
+          <span class="token operator">&lt;</span>button onClick<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+            <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span>
+              <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">name</span><span class="token operator">:</span> <span class="token string">"Upeksha"</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+              <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>name<span class="token punctuation">)</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+          <span class="token punctuation">}</span><span class="token punctuation">}</span><span class="token operator">></span>Change name<span class="token operator">&lt;</span><span class="token operator">/</span>button<span class="token operator">></span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>header<span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre></div>
+<h2>Robots Rolodex</h2>
+<p>To begin our project, we need to sanitize our <code class="language-text">App.js</code> file.</p>
+<div class="gatsby-code-title">./src/App.js</div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> logo <span class="token keyword">from</span> <span class="token string">'./logo.svg'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./App.css'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">></span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre></div>
+<p>First, we need a data list to show the names of our rolodex. For that, we will be using the following data set. <a href="https://jsonplaceholder.typicode.com/users" target="_blank" rel="nofollow noopener noreferrer">https://jsonplaceholder.typicode.com/users</a>
+Now, we can update our <code class="language-text">state</code> and edit our <code class="language-text">HTML</code> inside the <code class="language-text">render()</code> method.</p>
+<div class="gatsby-code-title">./src/App.js</div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> logo <span class="token keyword">from</span> <span class="token string">'./logo.svg'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./App.css'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">robots</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">></span>
+        <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>robots<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">robot</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>div key<span class="token operator">=</span><span class="token punctuation">{</span>robot<span class="token punctuation">.</span>id<span class="token punctuation">}</span><span class="token operator">></span>
+              <span class="token operator">&lt;</span>h1<span class="token operator">></span><span class="token punctuation">{</span>robot<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+          <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre></div>
+<p>But, when do we need to get the data from the mentioned API? We want that data at the exact moment our React component gets rendered or mounted. In other words, we need to choose the best lifecycle method to get the data from the mentioned API.</p>
+<h2>React Lifecycle Methods [1]</h2>
+<p>In React, components go through a lifecycle of events.</p>
+<ul>
+<li>Mounting → Adding nodes to the DOM</li>
+<li>Updating → Altering existing nodes in the DOM</li>
+<li>Unmounting → Removing nodes from the DOM</li>
+<li>Error handling → Verifying that your code works and is bug-free</li>
+</ul>
+<p>You can actually think of these events as component's birth, growth, and death respectively. And error handling is like getting medicine after a health checkup.</p>
+<p>Before rendering, the component goes through its mounting, updating and unmounting phases. Mounting is like bringing a newborn baby into the world. At this phase, the component is inserted to the DOM.</p>
+<p>After the mounting phase, the React component grows during the updating phase. Without updates, the component would remain as it is when it was initially created in the DOM.</p>
+<p>The final phase is called the unmounting phase. At this stage, the component dies or removed from the DOM.</p>
+<p>In addition to the above mentioned phases, the React component can gr through another phase named as the error handling phase. This occurs when your code contains bugs or doesn't work as expected.</p>
+<p>So, what are React lifecycle methods then?</p>
+<p>Each React lifecycle phase has numerous life cycle methods that you can override to run code at specified times during the process. These are commonly known as the component lifecycle methods.</p>
+<h3>Mounting lifecycle methods</h3>
+<p>The following lifecycle methods are called in order during the mounting phase</p>
+<ol>
+<li><strong><code class="language-text">constructor()</code></strong> → This brings the component to life. This is called before the component is mounted to DOM.</li>
+<li><strong><code class="language-text">static getDerivedStateFromProps()</code></strong> → This is a new React lifecycle method to replace <code class="language-text">componentWillReceiveProps()</code>**. Its main function is to ensure that the state and props are in sync for when it's required/</li>
+<li><strong><code class="language-text">render()</code></strong> → If you want to render elements to the DOM, the <code class="language-text">render()</code> method is where you would write them.</li>
+<li><strong><code class="language-text">componentDidMount()</code></strong> → This function is invoked immediately after the component is mounted to the DOM.</li>
+</ol>
+<h3>Updating lifecycle methods</h3>
+<ol>
+<li><strong><code class="language-text">static getDerivedStateFromProps()</code></strong> → This is the first react lifecycle method to be invoked during the updating phase.</li>
+<li><strong><code class="language-text">shouldComponentUpdate()</code></strong> → If you want a component to rerender when state or props change, you can control it inside this method.</li>
+<li><strong><code class="language-text">render()</code></strong> → After <code class="language-text">shouldComponentUpdate()</code> method is called <code class="language-text">render()</code> is called immediately after.</li>
+<li><strong><code class="language-text">getSnapshotBeforeUpdate()</code></strong> → This stores the previous values of the state after the DOM is updated. One important thing to note is the value queried from the DOM in <code class="language-text">getSnapshotBeforeUpdate()</code> refers to the value just before the DOM is updated, even though the <code class="language-text">render()</code> method was previously called.</li>
+<li><strong><code class="language-text">componentDidUpdate()</code></strong> → Whatever value is returned from the <code class="language-text">getSnapshotBeforeUpdate()</code> lifecycle method is passed as the third argument to the <code class="language-text">componentDidUpdate()</code> method.</li>
+</ol>
+<h3>Unmounting lifecycle methods</h3>
+<ol>
+<li><strong><code class="language-text">componentWillUnmount()</code></strong> → This is invoked immediately before a component is unmounted and destroyed.</li>
+</ol>
+<h3>Error handling lifecycle methods</h3>
+<ol>
+<li><strong><code class="language-text">static getDerivedStateFromError()</code></strong> → Whenever an error is thrown in a descendant component, this is called first, and the error thrown passed as an argument.</li>
+<li><strong><code class="language-text">componentDidCatch()</code></strong> → This method is also called after an error in a descendant component is thrown.</li>
+</ol>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/cb23c7d21dcbf3b7b7910e21f41e4faa/5a523/lifecycle-methods.jpg"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 54.85714285714286%; position: relative; bottom: 0; left: 0; background-image: url('data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAALABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAAAAECBf/EABUBAQEAAAAAAAAAAAAAAAAAAAAB/9oADAMBAAIQAxAAAAHcSEsgX//EABcQAAMBAAAAAAAAAAAAAAAAAAAQEUH/2gAIAQEAAQUCdNp//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAwEBPwE//8QAFBEBAAAAAAAAAAAAAAAAAAAAEP/aAAgBAgEBPwE//8QAFRABAQAAAAAAAAAAAAAAAAAAEIH/2gAIAQEABj8Ca//EABoQAQACAwEAAAAAAAAAAAAAAAEAERAhQVH/2gAIAQEAAT8hbZ3CqYt1gvZ//9oADAMBAAIAAwAAABDED//EABQRAQAAAAAAAAAAAAAAAAAAABD/2gAIAQMBAT8QP//EABURAQEAAAAAAAAAAAAAAAAAABAR/9oACAECAQE/EKf/xAAaEAEAAgMBAAAAAAAAAAAAAAABABEhMUFR/9oACAEBAAE/EGPCnmYOiI+wK0QiD4iFDio+76n/2Q=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="lifecycle methods"
+        title="lifecycle methods"
+        src="/static/cb23c7d21dcbf3b7b7910e21f41e4faa/03346/lifecycle-methods.jpg"
+        srcset="/static/cb23c7d21dcbf3b7b7910e21f41e4faa/71299/lifecycle-methods.jpg 175w,
+/static/cb23c7d21dcbf3b7b7910e21f41e4faa/1e9fe/lifecycle-methods.jpg 350w,
+/static/cb23c7d21dcbf3b7b7910e21f41e4faa/03346/lifecycle-methods.jpg 700w,
+/static/cb23c7d21dcbf3b7b7910e21f41e4faa/c3223/lifecycle-methods.jpg 1050w,
+/static/cb23c7d21dcbf3b7b7910e21f41e4faa/5a523/lifecycle-methods.jpg 1200w"
+        sizes="(max-width: 700px) 100vw, 700px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<h3>↩ Back to Robot Rolodex</h3>
+<p>So what is the lifecycle method that seems best fit for getting the names list from the URL mentioned earlier?</p>
+<p>As we need to update the users as soon as the component get rendered. So the lifecycle method that we should use is <code class="language-text">componentDidMount()</code> method.</p>
+<div class="gatsby-code-title">./src/App.js</div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> logo <span class="token keyword">from</span> <span class="token string">'./logo.svg'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./App.css'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">robots</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'https://jsonplaceholder.typicode.com/users'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">users</span> <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span>
+        <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">robots</span><span class="token operator">:</span> users <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">></span>
+        <span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>robots<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">robot</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>div key<span class="token operator">=</span><span class="token punctuation">{</span>robot<span class="token punctuation">.</span>id<span class="token punctuation">}</span><span class="token operator">></span>
+              <span class="token operator">&lt;</span>h1<span class="token operator">></span><span class="token punctuation">{</span>robot<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+          <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre></div>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/64757ea2ffcdf325523feaff3ef10c7b/c71fc/component-did-mount.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 59.42857142857143%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAABM0lEQVQoz52SX4uCQBTF/VhtY2pbmdGy28Pu19aVUNOoBzWMXmxGK5LqLHMhWaI/1IXDHbjcH2fmjNI3B+j2LPS6Fphq4I0ZaDINTdYCU3W0NAO60YGutqFrHTQaDIxpsKwP/AxHMPtDtN9NfI2+YQ0+oQjOIbggFUWBoiipi0Jgu91iNpthPB7D/XWxSBcoyxJCCKyFQC4E+Jojz3NwzkkKHlSWZfA8D67r0uKjUk6nEy51PB5puN/vMZ1OSWEYIkmSen5tT+qqw/NQVhRF5M62baRpWs9vOrwFlLXb7QgYBAE5nM/nOBwOd6F3gfLKMhTf9ymYOI7r53gJuFqtapjjOORWJv8yUF5PQiaTCUFlKJdv/BRws9lQEMvlkr6PBFZV9bzDR0m+nPL/Pyf7+XzP4R8t5X1RWoTXogAAAABJRU5ErkJggg=='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="component did mount"
+        title="component did mount"
+        src="/static/64757ea2ffcdf325523feaff3ef10c7b/39600/component-did-mount.png"
+        srcset="/static/64757ea2ffcdf325523feaff3ef10c7b/1aaec/component-did-mount.png 175w,
+/static/64757ea2ffcdf325523feaff3ef10c7b/98287/component-did-mount.png 350w,
+/static/64757ea2ffcdf325523feaff3ef10c7b/39600/component-did-mount.png 700w,
+/static/64757ea2ffcdf325523feaff3ef10c7b/57cd1/component-did-mount.png 1050w,
+/static/64757ea2ffcdf325523feaff3ef10c7b/4af54/component-did-mount.png 1400w,
+/static/64757ea2ffcdf325523feaff3ef10c7b/c71fc/component-did-mount.png 2880w"
+        sizes="(max-width: 700px) 100vw, 700px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>Now we can update our <code class="language-text">App.js</code> component to have a new <code class="language-text">&lt;input/></code> which filters the names that we type and show them in our UI.</p>
+<div class="gatsby-highlight" data-language="js:./src/app.js"><pre class="language-js:./src/app.js"><code class="language-js:./src/app.js">import { Component } from &#39;react&#39;;
+import logo from &#39;./logo.svg&#39;;
+import &#39;./App.css&#39;;
+
+class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      robots: [],
+      searchField: &#39;&#39;
+    };
+  }
+
+  componentDidMount() {
+    fetch(&#39;https://jsonplaceholder.typicode.com/users&#39;)
+      .then(res =&gt; res.json())
+      .then(users =&gt; this.setState(
+        () =&gt; {
+          return { robots: users };
+        },
+        () =&gt; {
+          console.log(this.state);
+        }
+      ));
+  }
+
+
+  render() {
+
+    const filteredRobots = this.state.robots.filter((robot)=&gt;{
+      return robot.name.toLocaleLowerCase().includes(this.state.searchField);
+    });
+
+    return (
+      &lt;div className=&quot;App&quot;&gt;
+        &lt;input className=&quot;search-box&quot; type=&quot;search&quot; placeholder=&quot;search robots&quot; onChange={(e)=&gt;{
+          console.log(e.target.value);
+          const searchField = e.target.value.toLocaleLowerCase();
+          this.setState(()=&gt;{
+            return {searchField};
+          })
+        }}/&gt;
+        {filteredRobots.map(robot =&gt; {
+          return (
+            &lt;div key={robot.id}&gt;
+              &lt;h1&gt;{robot.name}&lt;/h1&gt;
+            &lt;/div&gt;
+          );
+        })}
+      &lt;/div&gt;
+    );
+  }
+}
+
+export default App;</code></pre></div>
+<p>Here, few things to note are,</p>
+<ul>
+<li>We are using another <code class="language-text">state</code> variable named <code class="language-text">searchField</code> to filter the robots as we type them in the <code class="language-text">&lt;input/></code> tag.</li>
+<li>Since <code class="language-text">const searchField</code> is same as the <code class="language-text">state</code> variable name we can direclty use it in the <code class="language-text">setState()</code> rather than using <code class="language-text">this.setState(()=>{return searchField: searchField});</code></li>
+</ul>
+<p>Since these are basics of React and not related to the class components and lifecycle methods, we will not dig deep into them.</p>
+<p>To optimize the above code we can introduce a new method and put the code inside <code class="language-text">onChange()</code> into that and destructure the <code class="language-text">this</code> and <code class="language-text">this.state</code> variables as shown below.</p>
+<div class="gatsby-code-title">./src/App.js</div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> logo <span class="token keyword">from</span> <span class="token string">'./logo.svg'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./App.css'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">robots</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">searchField</span><span class="token operator">:</span> <span class="token string">''</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'https://jsonplaceholder.typicode.com/users'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">res</span> <span class="token operator">=></span> res<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">users</span> <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span>
+        <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">robots</span><span class="token operator">:</span> users <span class="token punctuation">}</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+          console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function-variable function">onSearchChange</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">const</span> searchField <span class="token operator">=</span> e<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">toLocaleLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span> searchField <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>robots<span class="token punctuation">,</span> searchField<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span>onSearchChange<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> filteredRobots <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">.</span>robots<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">robot</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> robot<span class="token punctuation">.</span>name<span class="token punctuation">.</span><span class="token function">toLocaleLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>searchField<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>input className<span class="token operator">=</span><span class="token string">"search-box"</span> type<span class="token operator">=</span><span class="token string">"search"</span> placeholder<span class="token operator">=</span><span class="token string">"search robots"</span> onChange<span class="token operator">=</span><span class="token punctuation">{</span>onSearchChange<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">></span>
+        <span class="token punctuation">{</span>filteredRobots<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token parameter">robot</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span>div key<span class="token operator">=</span><span class="token punctuation">{</span>robot<span class="token punctuation">.</span>id<span class="token punctuation">}</span><span class="token operator">></span>
+              <span class="token operator">&lt;</span>h1<span class="token operator">></span><span class="token punctuation">{</span>robot<span class="token punctuation">.</span>name<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+          <span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre></div>
+<p>But are those two the only one we can do to optimize this?</p>
+<p>No! We can introduce more components and use them in order to simplify our project. To do that create a new folder named <code class="language-text">components</code> under <code class="language-text">./src</code> and create three more folders under that. And then add the respective <code class="language-text">.js</code> and <code class="language-text">.css</code> files to them.</p>
+<ul>
+<li><code class="language-text">card-list</code></li>
+<li><code class="language-text">card</code></li>
+<li><code class="language-text">search-box</code></li>
+</ul>
+<p>Now, your file structure would look like this.</p>
+<div class="gatsby-highlight" data-language="shell"><pre class="language-shell"><code class="language-shell"><span class="token builtin class-name">.</span>
+├── README.md
+├── node_modules
+├── package-lock.json
+├── package.json
+├── public
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo192.png
+│   ├── logo512.png
+│   ├── manifest.json
+│   └── robots.txt
+└── src
+    └── components
+    │       └── card
+    │       │     ├── card.component.jsx
+    │       │     └──card.styles.css
+    │       └── card-list
+    │       │     ├── card-list.component.jsx
+    │       │     └──card-list.styles.css
+    │       └── search-box
+    │             ├── search-box.component.jsx
+    │             └── search-box.styles.css
+    ├── App.css
+    ├── App.js
+    ├── App.test.js
+    ├── index.css
+    ├── index.js
+    ├── logo.svg
+    ├── reportWebVitals.js
+    └── setupTests.js</code></pre></div>
+<p>Since we have learnt about the <em>class components</em> and <em>lifecycle methods</em> we will optimize the code and finish our project here. To create the images that we need for the cards, we will be using the <a href="https://robohash.org/" target="_blank" rel="nofollow noopener noreferrer">robohash</a> generator.</p>
+<div class="gatsby-code-title">./src/components/card/card.component.jsx</div>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">"./card.styles.css"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">Card</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> name<span class="token punctuation">,</span> email<span class="token punctuation">,</span> id <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>robot<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">key</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>id<span class="token punctuation">}</span></span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card-container<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>img</span>
+          <span class="token attr-name">alt</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">robot </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>name<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span></span>
+          <span class="token attr-name">src</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">https://robohash.org/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>id<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">?set=set1&amp;size=180x180</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span></span>
+        <span class="token punctuation">/></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>name<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>p</span><span class="token punctuation">></span></span><span class="token punctuation">{</span>email<span class="token punctuation">}</span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>p</span><span class="token punctuation">></span></span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> Card<span class="token punctuation">;</span></code></pre></div>
+<div class="gatsby-code-title">./src/components/card/card.styles.css</div>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.card-container</span> <span class="token punctuation">{</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> flex<span class="token punctuation">;</span>
+  <span class="token property">flex-direction</span><span class="token punctuation">:</span> column<span class="token punctuation">;</span>
+  <span class="token property">background-color</span><span class="token punctuation">:</span> #95dada<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> 1px solid grey<span class="token punctuation">;</span>
+  <span class="token property">border-radius</span><span class="token punctuation">:</span> 5px<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 25px<span class="token punctuation">;</span>
+  <span class="token property">cursor</span><span class="token punctuation">:</span> pointer<span class="token punctuation">;</span>
+  <span class="token property">-moz-osx-font-smoothing</span><span class="token punctuation">:</span> grayscale<span class="token punctuation">;</span>
+  <span class="token property">backface-visibility</span><span class="token punctuation">:</span> hidden<span class="token punctuation">;</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">translateZ</span><span class="token punctuation">(</span>0<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">transition</span><span class="token punctuation">:</span> transform 0.25s ease-out<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.card-container:hover</span> <span class="token punctuation">{</span>
+  <span class="token property">transform</span><span class="token punctuation">:</span> <span class="token function">scale</span><span class="token punctuation">(</span>1.05<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-code-title">./src/components/search-box/search-box.component.jsx</div>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">"./search-box.styles.css"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">SearchBox</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>input</span>
+        <span class="token attr-name">className</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">search-box </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>className<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span></span>
+        <span class="token attr-name">type</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>search<span class="token punctuation">"</span></span>
+        <span class="token attr-name">placeholder</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>placeholder<span class="token punctuation">}</span></span>
+        <span class="token attr-name">onChange</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span><span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">.</span>onChangeHandler<span class="token punctuation">}</span></span>
+      <span class="token punctuation">/></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> SearchBox<span class="token punctuation">;</span></code></pre></div>
+<div class="gatsby-code-title">./src/components/search-box/search-box.styles.css</div>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.search-box</span> <span class="token punctuation">{</span>
+  <span class="token property">-webkit-appearance</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">border</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">outline</span><span class="token punctuation">:</span> none<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 10px<span class="token punctuation">;</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 150px<span class="token punctuation">;</span>
+  <span class="token property">line-height</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 30px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-code-title">./src/components/card-list/card-list.component.jsx</div>
+<div class="gatsby-highlight" data-language="jsx"><pre class="language-jsx"><code class="language-jsx"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"react"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> Card <span class="token keyword">from</span> <span class="token string">"../card/card.component"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">"./card-list.styles.css"</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">CardList</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> robots <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>props<span class="token punctuation">;</span>
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>div</span> <span class="token attr-name">className</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>card-list<span class="token punctuation">"</span></span><span class="token punctuation">></span></span><span class="token plain-text">
+        </span><span class="token punctuation">{</span>robots<span class="token punctuation">.</span><span class="token function">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">robot</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+          <span class="token keyword">return</span> <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token class-name">Card</span></span> <span class="token attr-name">robot</span><span class="token script language-javascript"><span class="token script-punctuation punctuation">=</span><span class="token punctuation">{</span>robot<span class="token punctuation">}</span></span> <span class="token punctuation">/></span></span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token plain-text">
+      </span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>div</span><span class="token punctuation">></span></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> CardList<span class="token punctuation">;</span></code></pre></div>
+<div class="gatsby-code-title">./src/components/card-list/card-list.styles.css</div>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">.card-list</span> <span class="token punctuation">{</span>
+  <span class="token property">width</span><span class="token punctuation">:</span> 85vw<span class="token punctuation">;</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0 auto<span class="token punctuation">;</span>
+  <span class="token property">display</span><span class="token punctuation">:</span> grid<span class="token punctuation">;</span>
+  <span class="token property">grid-template-columns</span><span class="token punctuation">:</span> 1fr 1fr 1fr 1fr<span class="token punctuation">;</span>
+  <span class="token property">grid-gap</span><span class="token punctuation">:</span> 20px<span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<div class="gatsby-code-title">./src/App.js</div>
+<div class="gatsby-highlight" data-language="js"><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'react'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token string">'./App.css'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> CardList <span class="token keyword">from</span> <span class="token string">'./components/card-list/card-list.component'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> SearchBox <span class="token keyword">from</span> <span class="token string">'./components/search-box/search-box.component'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">class</span> <span class="token class-name">App</span> <span class="token keyword">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+
+  <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">super</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">this</span><span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token literal-property property">robots</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+      <span class="token literal-property property">searchField</span><span class="token operator">:</span> <span class="token string">''</span>
+    <span class="token punctuation">}</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">componentDidMount</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">'https://jsonplaceholder.typicode.com/users'</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">response</span> <span class="token operator">=></span> response<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+      <span class="token punctuation">.</span><span class="token function">then</span><span class="token punctuation">(</span><span class="token parameter">users</span> <span class="token operator">=></span> <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">{</span> <span class="token literal-property property">robots</span><span class="token operator">:</span> users <span class="token punctuation">}</span><span class="token punctuation">;</span>
+      <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function-variable function">onSearchChange</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">event</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> searchField <span class="token operator">=</span> event<span class="token punctuation">.</span>target<span class="token punctuation">.</span>value<span class="token punctuation">.</span><span class="token function">toLocaleLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token keyword">this</span><span class="token punctuation">.</span><span class="token function">setState</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> <span class="token punctuation">{</span> searchField <span class="token punctuation">}</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> robots<span class="token punctuation">,</span> searchField <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>state<span class="token punctuation">;</span>
+    <span class="token keyword">const</span> <span class="token punctuation">{</span> onSearchChange <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">const</span> filteredRobots <span class="token operator">=</span> robots<span class="token punctuation">.</span><span class="token function">filter</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">robot</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+      <span class="token keyword">return</span> robot<span class="token punctuation">.</span>name<span class="token punctuation">.</span><span class="token function">toLocaleLowerCase</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">includes</span><span class="token punctuation">(</span>searchField<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">return</span> <span class="token punctuation">(</span>
+      <span class="token operator">&lt;</span>div className<span class="token operator">=</span><span class="token string">"App"</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>h1 className<span class="token operator">=</span><span class="token string">'app-title'</span><span class="token operator">></span>Robots Rolodex<span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">></span>
+        <span class="token operator">&lt;</span>SearchBox className<span class="token operator">=</span><span class="token string">'robots-search-box'</span> onChangeHandler <span class="token operator">=</span> <span class="token punctuation">{</span>onSearchChange<span class="token punctuation">}</span> placeholder<span class="token operator">=</span><span class="token string">'search robots'</span><span class="token operator">/</span><span class="token operator">></span>
+        <span class="token operator">&lt;</span>CardList robots <span class="token operator">=</span> <span class="token punctuation">{</span>filteredRobots<span class="token punctuation">}</span><span class="token operator">/</span><span class="token operator">></span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">></span>
+    <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">export</span> <span class="token keyword">default</span> App<span class="token punctuation">;</span></code></pre></div>
+<div class="gatsby-code-title">./src/App.css</div>
+<div class="gatsby-highlight" data-language="css"><pre class="language-css"><code class="language-css"><span class="token selector">body</span> <span class="token punctuation">{</span>
+  <span class="token property">margin</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">padding</span><span class="token punctuation">:</span> 0<span class="token punctuation">;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> -apple-system<span class="token punctuation">,</span> BlinkMacSystemFont<span class="token punctuation">,</span> <span class="token string">'Segoe UI'</span><span class="token punctuation">,</span> <span class="token string">'Roboto'</span><span class="token punctuation">,</span> <span class="token string">'Oxygen'</span><span class="token punctuation">,</span>
+    <span class="token string">'Ubuntu'</span><span class="token punctuation">,</span> <span class="token string">'Cantarell'</span><span class="token punctuation">,</span> <span class="token string">'Fira Sans'</span><span class="token punctuation">,</span> <span class="token string">'Droid Sans'</span><span class="token punctuation">,</span> <span class="token string">'Helvetica Neue'</span><span class="token punctuation">,</span>
+    sans-serif<span class="token punctuation">;</span>
+  <span class="token property">-webkit-font-smoothing</span><span class="token punctuation">:</span> antialiased<span class="token punctuation">;</span>
+  <span class="token property">-moz-osx-font-smoothing</span><span class="token punctuation">:</span> grayscale<span class="token punctuation">;</span>
+  <span class="token property">background</span><span class="token punctuation">:</span> <span class="token function">linear-gradient</span><span class="token punctuation">(</span>
+    to left<span class="token punctuation">,</span>
+    <span class="token function">rgba</span><span class="token punctuation">(</span>7<span class="token punctuation">,</span> 27<span class="token punctuation">,</span> 82<span class="token punctuation">,</span> 1<span class="token punctuation">)</span> 0%<span class="token punctuation">,</span>
+    <span class="token function">rgba</span><span class="token punctuation">(</span>0<span class="token punctuation">,</span> 128<span class="token punctuation">,</span> 128<span class="token punctuation">,</span> 1<span class="token punctuation">)</span> 100%
+  <span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token property">text-align</span><span class="token punctuation">:</span> center<span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+<span class="token selector">.app-title</span><span class="token punctuation">{</span>
+  <span class="token property">margin-top</span><span class="token punctuation">:</span> 75px<span class="token punctuation">;</span>
+  <span class="token property">margin-bottom</span><span class="token punctuation">:</span> 50px<span class="token punctuation">;</span>
+  <span class="token property">font-size</span><span class="token punctuation">:</span> 76px<span class="token punctuation">;</span>
+  <span class="token property">color</span><span class="token punctuation">:</span> #0ccac4<span class="token punctuation">;</span>
+  <span class="token property">font-family</span><span class="token punctuation">:</span> <span class="token string">'Bigelow Rules'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre></div>
+<p>And we can add the font <em>Bigelow Rules</em> in <code class="language-text">./public/index.html</code> by adding the following line,
+<code class="language-text">&lt;link href="https://fonts.googleapis.com/css2?family=Bigelow+Rules&amp;display=swap" rel="stylesheet"/></code></p>
+<p><span
+      class="gatsby-resp-image-wrapper"
+      style="position: relative; display: block; margin-left: auto; margin-right: auto; max-width: 700px; "
+    >
+      <a
+    class="gatsby-resp-image-link"
+    href="/static/8a4f996ecce9285f3f7a3652b4f79563/c71fc/final.png"
+    style="display: block"
+    target="_blank"
+    rel="noopener"
+  >
+    <span
+    class="gatsby-resp-image-background-image"
+    style="padding-bottom: 59.42857142857143%; position: relative; bottom: 0; left: 0; background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAMCAYAAABiDJ37AAAACXBIWXMAABYlAAAWJQFJUiTwAAADWUlEQVQozy3ReU+TBwCA8RcoRzcgHcbsCCTGZJl/jAFCKyKbE5pB2VwmSKIpDGTAhtrDrgfFcuoAQZBCBZyJblkcKjPqBoUCpUApN7peb/GYy5J9j2fR+QV+eZJHyD+iJO9wIYcOF5ClyCNDnkem/CCZ8gPsV+SRma0gMyeXrAwF2TkH+ShLTrY8D2VBMcXKEg7kKzmUX4iy5Es++awIIcF6HqnJyht6C4kaC0kNJpJrDSRX6ZGpdchOakkp17Lrq7OklHyHrOAbZB9Xk5T7NUk5FSRnnODNfcdJfP84iXtKEYTmVqIam4kxnidGa0XSYCa21khcpZ74aiMSSydCXRPCmVbiTzUh/bQWaX4NUkUVCVmVJKSrSdh3kri95cSmliJE21oQTE0IOjNRp41E1xmQnDqHRK0lqqyBlAoD5V3XKGrsJ76wlujcSmJy1MTuVxP74QkkH5Qj2VtG3J4y4tNeFtqakbVe4N2Obt5p6eI9Swe7dc2k6lp5u95KlrETx6SHwalFFIZu0r9tJ6OunbQvdKQWa0gr0pJ25DSy9EriUo8hCOZGqqamub6zg31jA/vTZzT8PsWVsMjAk+cMRJ6gm3ZjWVhm9K8XDD99xlAkQtPMIgMBP30rq4z+/QKl/jLCrs8RBKOZGs8Cd2fdjJ8xMCKKaFxuHKLIvZvnuPFoie5HQXpEEfvwLS45buP49x+aF32MerdpzbRid/lQ2a4ivFWCIHxvomrJi3NwiBVpEsMPHnLWs8yQGGGuT8XPnrt0bIfp3Nyip34YW2knl32b2DzLjKwFsKkuYvesUWwdeg0azVTNufnpjwnuVVTT73KhmfPQv/OcX+4PMjo9xkW/iPX6b3Trb9BWcxWL9Rq2OS/2cIi2kTs4QkGKjHaElJegyUL9zCzD4RDtG+vYQ0EMsx4cYpgLXh9X/H56H/tpX16hZ2udro1V+oN+2hZW6F1fo9PnxSEGUJkHX4MWK6pbY5gXvWimZ9DPznPs5q9onbPoJlwYnHPU3X6IaWqejsUVWtxLtHl8VP94B/24E+3YBMb7M8grWojaffT/y5UTkzhCYS5tbdMXClH/YJKePwP0+gPYRRHT9DxNbi9DkTADoSA/rG6iHXfSHwjSs/n41fUCTe+ry/8BLgQ+C1elCe8AAAAASUVORK5CYII='); background-size: cover; display: block;"
+  ></span>
+  <img
+        class="gatsby-resp-image-image"
+        alt="final"
+        title="final"
+        src="/static/8a4f996ecce9285f3f7a3652b4f79563/39600/final.png"
+        srcset="/static/8a4f996ecce9285f3f7a3652b4f79563/1aaec/final.png 175w,
+/static/8a4f996ecce9285f3f7a3652b4f79563/98287/final.png 350w,
+/static/8a4f996ecce9285f3f7a3652b4f79563/39600/final.png 700w,
+/static/8a4f996ecce9285f3f7a3652b4f79563/57cd1/final.png 1050w,
+/static/8a4f996ecce9285f3f7a3652b4f79563/4af54/final.png 1400w,
+/static/8a4f996ecce9285f3f7a3652b4f79563/c71fc/final.png 2880w"
+        sizes="(max-width: 700px) 100vw, 700px"
+        style="width:100%;height:100%;margin:0;vertical-align:middle;position:absolute;top:0;left:0;"
+        loading="lazy"
+        decoding="async"
+      />
+  </a>
+    </span></p>
+<p>So one of the important concepts to note in the above files is the way we have used <code class="language-text">props</code>. And you can see that we are also destructuring the <code class="language-text">props</code> for more readability.</p>
+<p>Since, this article is on <em>class components</em> and <em>lifecycle methods</em> I won't be stressing about <code class="language-text">props</code> and how to use them. But I will include some references if you want to learn more about them. 😊 You can find the project we created by accessing this <a href="https://github.com/nipunaupeksha/robot-rolodex" target="_blank" rel="nofollow noopener noreferrer">link</a>.</p>
+<h2>References</h2>
+<ul>
+<li><a href="https://blog.logrocket.com/react-lifecycle-methods-tutorial-examples/" target="_blank" rel="nofollow noopener noreferrer">https://blog.logrocket.com/react-lifecycle-methods-tutorial-examples/</a></li>
+<li><a href="https://reactjs.org/docs/components-and-props.html" target="_blank" rel="nofollow noopener noreferrer">https://reactjs.org/docs/components-and-props.html</a></li>
+</ul></div></main><footer class="footer__StyledFooter-sc-1kg96ub-0 fMYZyU"><div class="footer__StyledSocialLinks-sc-1kg96ub-1 hANWLx"><ul><li><a href="https://github.com/nipunaupeksha" aria-label="GitHub"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><title>GitHub</title><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg></a></li><li><a href="https://www.instagram.com/nipuna_upeksha" aria-label="Instagram"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram"><title>Instagram</title><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a></li><li><a href="https://twitter.com/NipunaUpeksha" aria-label="Twitter"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter"><title>Twitter</title><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path></svg></a></li><li><a href="https://www.linkedin.com/in/nipuna-upeksha" aria-label="LinkedIn"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-linkedin"><title>LinkedIn</title><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg></a></li><li><a href="https://stackoverflow.com/users/5941309/nipuna-upeksha" aria-label="StackOverflow"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="feather feather-stackoverflow"><title>StackOverflow</title><path d="M17.24 19.399v-4.804h1.6V21H4.381v-6.405h1.598v4.804H17.24zM7.582 17.8h8.055v-1.604H7.582V17.8zm.195-3.64 7.859 1.641.34-1.552-7.861-1.642-.338 1.553zm1.018-3.794 7.281 3.398.678-1.463-7.281-3.399-.678 1.454v.01zm2.037-3.589 6.166 5.142 1.018-1.216-6.162-5.14-1.016 1.213-.006.001zm3.982-3.778-1.311.969 4.803 6.454 1.313-.971-4.807-6.452h.002z"></path></svg></a></li><li><a href="https://medium.com/@nipunaupeksha" aria-label="Medium"><svg xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-medium"><title>Medium</title><path d="M20 3H4a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1zm-2.046 4.265-.966.925a.28.28 0 0 0-.106.271v6.801a.28.28 0 0 0 .106.271l.942.926v.204h-4.741v-.204l.977-.948c.097-.096.097-.125.097-.271V9.742l-2.716 6.896h-.368L8.018 9.742v4.622a.644.644 0 0 0 .176.531l1.271 1.541v.203H5.861v-.203l1.271-1.541a.618.618 0 0 0 .164-.531V9.02a.468.468 0 0 0-.152-.395l-1.13-1.36v-.203H9.52l2.71 5.943 2.382-5.943h3.343v.203z"></path></svg></a></li></ul></div><div class="footer__StyledCredit-sc-1kg96ub-2 hWbUCU"><a href="https://github.com/nipunaupeksha/v3"><div>Designed &amp; Built by Nipuna Upeksha</div></a></div></footer></div></div></div></div><div id="gatsby-announcer" style="position:absolute;top:0;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0, 0, 0, 0);white-space:nowrap;border:0" aria-live="assertive" aria-atomic="true"></div></div><script>
+  
+  
+  if(true) {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  }
+  if (typeof ga === "function") {
+    ga('create', 'UA-45666519-2', 'auto', {});
+      
+      
+      
+      
+      
+      }</script><script id="gatsby-script-loader">/*<![CDATA[*/window.pagePath="/pensieve/react-001";/*]]>*/</script><script id="gatsby-chunk-mapping">/*<![CDATA[*/window.___chunkMapping={"polyfill":["/polyfill-63f1937d98cb28a787b7.js"],"app":["/app-87f2faddc3f19bb031d1.js"],"component---cache-caches-gatsby-plugin-offline-app-shell-js":["/component---cache-caches-gatsby-plugin-offline-app-shell-js-79e331f8c5368c8346da.js"],"component---src-pages-404-js":["/component---src-pages-404-js-7a8a12b039ab97cf9e90.js"],"component---src-pages-archive-js":["/component---src-pages-archive-js-2cd92d9c39ab05202e01.js"],"component---src-pages-index-js":["/component---src-pages-index-js-2dd1dc8036f6b0cd6e1e.js"],"component---src-pages-pensieve-index-js":["/component---src-pages-pensieve-index-js-a296055f54cf574f4e78.js"],"component---src-pages-pensieve-tags-js":["/component---src-pages-pensieve-tags-js-0af1bf42692fc41fda7d.js"],"component---src-templates-post-js":["/component---src-templates-post-js-d6be7b9e56696eab6d3b.js"],"component---src-templates-tag-js":["/component---src-templates-tag-js-b5e90981c1c5189e575a.js"]};/*]]>*/</script><script src="/polyfill-63f1937d98cb28a787b7.js" nomodule=""></script><script src="/component---src-templates-post-js-d6be7b9e56696eab6d3b.js" async=""></script><script src="/546641dfde76ed00139ea2c3eae09499c5f2164a-104afb06b92282187f95.js" async=""></script><script src="/app-87f2faddc3f19bb031d1.js" async=""></script><script src="/framework-789315e08ec189f5b6ac.js" async=""></script><script src="/webpack-runtime-a4d007cd506450a28a46.js" async=""></script></body></html>

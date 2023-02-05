@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-pages-pensieve-tags-js",
+    "path": "/pensieve/tags/",
+    "result": {"data":{"allMarkdownRemark":{"group":[{"fieldValue":"DSA","totalCount":3},{"fieldValue":"Java","totalCount":6},{"fieldValue":"JavaScript","totalCount":1},{"fieldValue":"React","totalCount":1},{"fieldValue":"SOLID","totalCount":1},{"fieldValue":"Spring","totalCount":2}]}},"pageContext":{}},
+    "staticQueryHashes": ["1994492073","2273691282","3825832676","4162897811"]}

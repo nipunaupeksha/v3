@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-js",
+    "path": "/pensieve/tags/spring/",
+    "result": {"data":{"allMarkdownRemark":{"totalCount":2,"edges":[{"node":{"frontmatter":{"title":"Pet Clinic App","description":"Everything you need to know about Spring","date":"2022-08-19","slug":"/pensieve/spring-002","tags":["Java","Spring"]}}},{"node":{"frontmatter":{"title":"Dependency Injection","description":"Dependency Injection with Spring","date":"2022-08-11","slug":"/pensieve/spring-001","tags":["Java","Spring"]}}}]}},"pageContext":{"tag":"Spring"}},
+    "staticQueryHashes": ["1994492073","2273691282","3825832676","4162897811"]}
