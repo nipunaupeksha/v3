@@ -53,6 +53,10 @@ module.exports = {
       name: 'Contact',
       url: '/#contact',
     },
+    {
+      name: 'Pensieve',
+      url: '/pensieve'
+    }
   ],
 
   srConfig: (delay = 200, viewFactor = 0.25) => ({

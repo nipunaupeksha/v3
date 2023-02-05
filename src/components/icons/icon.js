@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  IconBookmark,
   IconCode,
   IconExternal,
   IconFolder,
@@ -18,6 +19,8 @@ import {
 
 const Icon = ({ name }) => {
   switch (name) {
+    case 'Bookmark':
+      return <IconBookmark />;
     case 'Code':
       return <IconCode />;
     case 'External':
