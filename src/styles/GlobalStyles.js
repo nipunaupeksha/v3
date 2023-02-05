@@ -292,6 +292,7 @@ const GlobalStyle = createGlobalStyle`
 
   p {
     margin: 0 0 var(--mb-1-5) 0;
+    font-size: var(--h3-font-size);
 
     &:last-child,
     &:last-of-type {

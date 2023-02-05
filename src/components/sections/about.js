@@ -154,6 +154,7 @@ const About = () => {
                 type="highlight"
                 color={config.colors.accent_color}
                 show={true}
+                multiline={true}
               >
                 Nipuna Upeksha
               </RoughNotation>
@@ -166,6 +167,7 @@ const About = () => {
                 type="highlight"
                 color={config.colors.accent_color}
                 show={true}
+                multiline={true}
               >
                 {' '}
                 Biomedical Engineering
@@ -204,6 +206,7 @@ const About = () => {
                 type="highlight"
                 color={config.colors.accent_color}
                 show={true}
+                multiline={true}
               >
                 Identity and Access Management
               </RoughNotation>{' '}

@@ -92,6 +92,7 @@ const Hero = () => {
           type="highlight"
           color={config.colors.accent_color}
           show={true}
+          multiline={true}
         >
           University of Moratuwa
         </RoughNotation>
@@ -102,6 +103,7 @@ const Hero = () => {
           type="highlight"
           color={config.colors.accent_color}
           show={true}
+          multiline={true}
         >
           Biomedical Engineering.
         </RoughNotation>{' '}
@@ -124,6 +126,7 @@ const Hero = () => {
           type="highlight"
           color={config.colors.accent_color}
           show={true}
+          multiline={true}
         >
           WSO2 Identity Server.
         </RoughNotation>
