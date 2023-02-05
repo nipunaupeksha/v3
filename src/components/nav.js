@@ -73,7 +73,7 @@ const StyledNav = styled.nav`
       &:hover,
       &:focus {
         svg {
-          fill: var(--first-color);
+          transform: scale(1.1);
         }
       }
 
