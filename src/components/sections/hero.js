@@ -54,7 +54,7 @@ const StyledEmailLink = styled.a`
   ${mixins.bigButton};
   margin-top: 50px;
   font-family: var(--font-sans);
-  font-size: var(--h2-font-size);
+  font-size: var(--normal-font-size);
 `;
 
 const Hero = () => {

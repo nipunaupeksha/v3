@@ -53,18 +53,18 @@ const GlobalStyle = createGlobalStyle`
   /* Scrollbar Styles */
   html {
     scrollbar-width: thin;
-    scrollbar-color: var(--scroll-bar-color) var(--scroll-bar-thumb-color);
+    scrollbar-color: var(--scroll-bar-color) var(--first-color);
   }
   ::-webkit-scrollbar {
     width: 1.25rem;
   }
   ::-webkit-scrollbar-track {
-    background: var(--scroll-bar-color);
+    background: var(--body-color);
   }
   ::-webkit-scrollbar-thumb {
     background-color: var(--scroll-bar-thumb--color);
     border: 3px solid var(--scroll-bar-color);
-    border-radius: 1.125rem;
+    border-radius: 1rem;
   }
 
   body {
