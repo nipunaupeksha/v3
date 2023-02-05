@@ -3,8 +3,8 @@ import { css } from 'styled-components';
 const variables = css`
   :root {
     /*========== Nav bar properties ==========*/
-    --nav-height: 8.5rem;
-    --nav-scroll-height: 8.5rem;
+    --nav-height: 5rem;
+    --nav-scroll-height: 5rem;
     --hamburger-width: 2rem;
 
     /*========== Font and typography ==========*/

@@ -19,7 +19,7 @@ const StyledSocialLinks = styled.div`
   @media (max-width: 768px) {
     display: block;
     width: 100%;
-    max-width: 270px;
+    max-width: 350px;
     margin: 0 auto 10px;
     color: var(--first-color);
   }
@@ -97,9 +97,9 @@ const Footer = () => {
         <ul>
           {socialMedia &&
             socialMedia.map(({ name, url }, i) => (
-              <li key={i}>
+              <li key={i} >
                 <a href={url} aria-label={name}>
-                  <Icon name={name} />
+                  <Icon name={name}/>
                 </a>
               </li>
             ))}
