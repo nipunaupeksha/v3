@@ -9,7 +9,7 @@
 </p>
 </p>
 
-![demo](https://raw.githubusercontent.com/nipunaupeksha/v3/master/src/images/demo.png)
+![demo](https://raw.githubusercontent.com/nipunaupeksha/v3/main/src/images/demo.png)
 
 
 
