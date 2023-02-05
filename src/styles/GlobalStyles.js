@@ -190,7 +190,7 @@ const GlobalStyle = createGlobalStyle`
 
     &:before {
       position: relative;
-      bottom: 4px;
+      // bottom: 4px;
       counter-increment: section;
       content: '0' counter(section) '.';
       margin-right: var(--mb-0-75);
@@ -209,7 +209,7 @@ const GlobalStyle = createGlobalStyle`
       content: '';
       display: block;
       position: relative;
-      top: calc(-1 * var(--mb-0-25));
+      // top: calc(-1 * var(--mb-0-25));
       width: 300px;
       height: 1px;
       margin-left: var(--mb-1-25);
@@ -305,7 +305,7 @@ const GlobalStyle = createGlobalStyle`
     & > code {
       background-color: var(--light-navy);
       color: var(--white);
-      font-size: var(--fz-sm);
+      font-size: var(--normal-font-size);
       border-radius: var(--border-radius);
       padding: 0.3em 0.5em;
     }
@@ -316,7 +316,7 @@ const GlobalStyle = createGlobalStyle`
       padding: 0;
       margin: 0;
       list-style: none;
-      font-size: var(--fz-lg);
+      font-size: var(--h3-font-size);
       li {
         position: relative;
         padding-left: 30px;
@@ -357,7 +357,7 @@ const GlobalStyle = createGlobalStyle`
 
   code {
     font-family: var(--font-mono);
-    font-size: var(--fz-md);
+    font-size: var(--h3-font-size);
   }
 
   .skip-to-content {
@@ -402,10 +402,10 @@ const GlobalStyle = createGlobalStyle`
     font-weight: 400;
     line-height: 1.5;
     @media (max-width: 1080px) {
-      font-size: var(--fz-sm);
+      font-size: var(--normal-font-size);
     }
     @media (max-width: 768px) {
-      font-size: var(--fz-xs);
+      font-size: var(--small-font-size);
     }
 
     a {

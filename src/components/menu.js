@@ -46,7 +46,7 @@ const StyledHamburgerButton = styled.button`
     width: var(--hamburger-width);
     height: 2px;
     border-radius: var(--border-radius);
-    background-color: var(--green);
+    background-color: var(--body-color);
     transition-duration: 0.22s;
     transition-property: transform;
     transition-delay: ${props => (props.menuOpen ? `0.12s` : `0s`)};
@@ -125,7 +125,7 @@ const StyledSidebar = styled.aside`
       position: relative;
       margin: 0 auto 20px;
       counter-increment: item 1;
-      font-size: clamp(var(--fz-sm), 4vw, var(--fz-lg));
+      font-size: var(--normal-font-size);
 
       @media (max-width: 600px) {
         margin: 0 auto 10px;
@@ -135,8 +135,8 @@ const StyledSidebar = styled.aside`
         content: '0' counter(item) '.';
         display: block;
         margin-bottom: 5px;
-        color: var(--green);
-        font-size: var(--fz-sm);
+        color: var(--first-color);
+        font-size: var(--normal-font-size);
       }
     }
 

@@ -34,7 +34,7 @@ const StyledText = styled.div`
       margin-bottom: 10px;
       padding-left: 20px;
       font-family: var(--font-sans);
-      font-size: var(--h4-font-size);
+      font-size: var(--h3-font-size);
       color: var(--first-color-alt);
 
       &:before {
@@ -43,7 +43,7 @@ const StyledText = styled.div`
         left: 0;
         top: 0.25rem;
         color: var(--first-color);
-        font-size: var(--h4-font-size);
+        font-size: var(--h3-font-size);
         line-height: 12px;
       }
     }

@@ -42,9 +42,17 @@ module.exports = {
       url: '/#about',
     },
     {
-      name: 'Jobs',
+      name: 'Experience',
       url: "/#jobs"
-    }
+    },
+    {
+      name: 'Work',
+      url: '/#projects',
+    },
+    {
+      name: 'Contact',
+      url: '/#contact',
+    },
   ],
 
   srConfig: (delay = 200, viewFactor = 0.25) => ({

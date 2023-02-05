@@ -29,13 +29,13 @@ const PrismStyles = css`
     overflow: auto;
     position: relative;
     font-family: var(--font-mono);
-    font-size: var(--fz-md);
+    font-size: var(--normal-font-size);
   }
 
   .gatsby-highlight code[class*='language-'],
   .gatsby-highlight pre[class*='language-'] {
     height: auto !important;
-    font-size: var(--fz-sm);
+    font-size: var(--normal-font-size);
     line-height: 1.5;
     white-space: pre;
     word-spacing: normal;
@@ -66,7 +66,7 @@ const PrismStyles = css`
   .gatsby-code-title {
     padding: 1em 1.5em;
     font-family: var(--font-mono);
-    font-size: var(--fz-xs);
+    font-size: var(--normal-font-size);
     background-color: ${prismColors.bg};
     color: ${prismColors.grey};
     border-top-left-radius: var(--border-radius);
@@ -84,7 +84,7 @@ const PrismStyles = css`
   .gatsby-highlight-code-line {
     display: block;
     background-color: ${prismColors.lineHighlight};
-    border-left: 2px solid var(--green);
+    border-left: 2px solid var(--first-color);
     padding-left: calc(1em + 2px);
     padding-right: 1em;
     margin-right: -1.35em;
@@ -95,7 +95,7 @@ const PrismStyles = css`
   .gatsby-highlight pre[class*='language-']::before {
     background: var(--lightest-navy);
     color: var(--white);
-    font-size: var(--fz-xxs);
+    font-size: var(--small-font-size);
     font-family: var(--font-mono);
     line-height: 1.5;
     letter-spacing: 0.1em;

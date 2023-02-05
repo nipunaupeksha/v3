@@ -7,6 +7,8 @@ import styled from 'styled-components';
 import { navDelay } from '../utils';
 import { Layout } from '../components';
 import { usePrefersReducedMotion } from '../hooks';
+import { RoughNotation } from 'react-rough-notation';
+import config from '../config';
 
 const StyledMainContainer = styled.main`
   ${({ theme }) => theme.mixins.flexCenter};
@@ -20,11 +22,14 @@ const StyledTitle = styled.h1`
 `;
 const StyledSubtitle = styled.h2`
   font-size: clamp(30px, 5vw, 50px);
+  color: var(--first-color);
   font-weight: 400;
 `;
 const StyledHomeButton = styled(Link)`
   ${({ theme }) => theme.mixins.bigButton};
   margin-top: 40px;
+  font-family: var(--font-sans);
+  font-size: var(--h2-font-size);
 `;
 
 const NotFoundPage = ({ location }) => {
@@ -42,7 +47,12 @@ const NotFoundPage = ({ location }) => {
 
   const content = (
     <StyledMainContainer className="fillHeight">
-      <StyledTitle>404</StyledTitle>
+      <StyledTitle><RoughNotation  animationDuration={1000}
+                animationDelay={100}
+                strokeWidth={2}
+                type="circle"
+                color={config.colors.accent_color}
+                show={true}>404</RoughNotation></StyledTitle>
       <StyledSubtitle>Page Not Found</StyledSubtitle>
       <StyledHomeButton to="/">Go Home</StyledHomeButton>
     </StyledMainContainer>
