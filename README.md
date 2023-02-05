@@ -1,56 +1,54 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
+<div align="center">
+  <img alt="Logo" src="https://raw.githubusercontent.com/nipunaupeksha/v3/main/src/images/logo.png" width="100" />
+</div>
 <h1 align="center">
-  Gatsby minimal starter
+  nipunaupeksha.github.io
 </h1>
+<p align="center">
+  The personal potfolio of Nipuna Upeksha</a> built with <a href="https://www.gatsbyjs.org/" target="_blank">Gatsby</a> and hosted in GitHub pages</a>
+</p>
+</p>
 
-## 🚀 Quick start
+![demo](https://raw.githubusercontent.com/nipunaupeksha/v3/master/src/images/demo.png)
 
-1.  **Create a Gatsby site.**
 
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
 
-    ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
-    ```
+## 🛠 Installation & Set Up
 
-2.  **Start developing.**
+1. Install the Gatsby CLI
 
-    Navigate into your new site’s directory and start it up.
+   ```sh
+   npm install -g gatsby-cli
+   ```
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+2. Install and use the correct version of Node using [NVM](https://github.com/nvm-sh/nvm)
 
-3.  **Open the code and start customizing!**
+   ```sh
+   nvm install
+   ```
 
-    Your site is now running at http://localhost:8000!
+3. Install dependencies
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+   ```sh
+   yarn
+   ```
 
-4.  **Learn more**
+4. Start the development server
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+   ```sh
+   npm start
+   ```
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## 🚀 Building and Running for Production
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+1. Generate a full static production build
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+   ```sh
+   npm run build
+   ```
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+1. Preview the site as it will appear once deployed
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
-
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
-
-# v3
+   ```sh
+   npm run serve
+   ```
