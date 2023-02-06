@@ -110,7 +110,7 @@ const Footer = () => {
         <a href="https://github.com/nipunaupeksha/nipunaupeksha.github.io">
           <div>Designed &amp; Built by Nipuna Upeksha</div>
 
-          {githubInfo.stars && githubInfo.forks && (
+          {/* {githubInfo.stars && githubInfo.forks && (
             <div className="github-stats">
               <span>
                 <Icon name="Star" />
@@ -121,7 +121,7 @@ const Footer = () => {
                 <span>{githubInfo.forks.toLocaleString()}</span>
               </span>
             </div>
-          )}
+          )} */}
         </a>
       </StyledCredit>
     </StyledFooter>
