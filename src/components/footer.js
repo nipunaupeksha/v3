@@ -78,7 +78,7 @@ const Footer = () => {
     if (process.env.NODE_ENV !== 'production') {
       return;
     }
-    fetch('https://api.github.com/repos/nipunaupeksha/v3')
+    fetch('https://api.github.com/repos/nipunaupeksha/nipunaupeksha.github.io')
       .then(res => res.json())
       .then(json => {
         const { stargazers_count, forks_count } = json;
@@ -107,7 +107,7 @@ const Footer = () => {
       </StyledSocialLinks>
 
       <StyledCredit tabindex="-1">
-        <a href="https://github.com/nipunaupeksha/v3">
+        <a href="https://github.com/nipunaupeksha/nipunaupeksha.github.io">
           <div>Designed &amp; Built by Nipuna Upeksha</div>
 
           {githubInfo.stars && githubInfo.forks && (

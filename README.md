@@ -1,5 +1,5 @@
 <div align="center">
-  <img alt="Logo" src="https://raw.githubusercontent.com/nipunaupeksha/v3/main/src/images/logo.png" width="100" />
+  <img alt="Logo" src="https://raw.githubusercontent.com/nipunaupeksha/nipunaupeksha.github.io/main/src/images/logo.png" width="100" />
 </div>
 <h1 align="center">
   nipunaupeksha.github.io
@@ -9,7 +9,7 @@
 </p>
 </p>
 
-![demo](https://raw.githubusercontent.com/nipunaupeksha/v3/main/src/images/demo.png)
+![demo](https://raw.githubusercontent.com/nipunaupeksha/nipunaupeksha.github.io/main/src/images/demo.png)
 
 
 
