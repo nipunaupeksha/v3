@@ -1,7 +1,7 @@
 ---
-date: '2022-02-10'
+date: '2023-02-10'
 title: 'React Fitness Website'
-github: 'https://github.com/nipunaupeksha/https://github.com/nipunaupeksha/react-fitness-website'
+github: 'https://github.com/nipunaupeksha/react-fitness-website'
 tech:
   - React
   - TailwindCSS
