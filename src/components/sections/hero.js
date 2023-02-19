@@ -72,16 +72,21 @@ const Hero = () => {
 
   const one = <h1>Hi, my name is,</h1>;
   const two = <h2 className="big-heading">Nipuna Upeksha.</h2>;
-  const three = <h3 className="big-heading"> 
-  <RoughNotation
-  animationDuration={1000}
-  animationDelay={100}
-  strokeWidth={2}
-  iterations={4}
-  type="circle"
-  color={config.colors.accent_color}
-  show={true}
->A Programming Enthusiast.</RoughNotation></h3>;
+  const three = (
+    <h3 className="big-heading">
+      <RoughNotation
+        animationDuration={1000}
+        animationDelay={100}
+        strokeWidth={2}
+        iterations={4}
+        type="circle"
+        color={config.colors.accent_color}
+        show={true}
+      >
+        A Programming Enthusiast.
+      </RoughNotation>
+    </h3>
+  );
   const four = (
     <>
       <p>

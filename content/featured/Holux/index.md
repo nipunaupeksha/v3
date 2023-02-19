@@ -11,6 +11,6 @@ tech:
   - My sQL
 ---
 
-Holux is a POS management system created for **Sahana** restaurant chain, using *Angular, Electron, Node JS, My SQL*. The system can do POS transactions, manage users, manage outlets and report generation. 
+Holux is a POS management system created for **Sahana** restaurant chain, using _Angular, Electron, Node JS, My SQL_. The system can do POS transactions, manage users, manage outlets and report generation.
 
 Further, this application able to manage all the transactions and product data online and offline.

@@ -425,10 +425,9 @@ After that, click on `package` to see whether it is packaging properly.
 
 ![](./multi-module-package.png)
 
-
 ## Step 4 - Using a Version Control System for our Project
 
-When creating a project it is always better to use a version control system, since we don't know when our data might be lost if we are only backing up the project in our local machine. There are quite a few version controlling systems like, github, gitlab and bitbucket in industry. But the most popular one among them is github. So in this project we will use github to do our version controlling. 
+When creating a project it is always better to use a version control system, since we don't know when our data might be lost if we are only backing up the project in our local machine. There are quite a few version controlling systems like, github, gitlab and bitbucket in industry. But the most popular one among them is github. So in this project we will use github to do our version controlling.
 To use github, you need to have an account. You can create one by going to [github homepage](https://www.github.com)
 After creating a github account, you can go to the `repositories` and create a new repository by clicking on the `new` button. Give the repository name as `pet-clinic` and press `Create Repository` button.
 
@@ -725,7 +724,7 @@ In this section we will create services to interact with repositories and contro
 └── target
 ```
 
-Then inside that `services` package we will create three new interfaces. The reasons we create these as interfaces first is to follow the `Interface Segregation Principle` in SOLID principles and to use dependency injection.  Inside that service, we will intorduce few methods as well.
+Then inside that `services` package we will create three new interfaces. The reasons we create these as interfaces first is to follow the `Interface Segregation Principle` in SOLID principles and to use dependency injection. Inside that service, we will intorduce few methods as well.
 
 ```java:title=./pet-clinic-data/src/main/java/com/flt/petclinic/services/OwnerService.java
 package com.flt.petclinic.services;
@@ -745,6 +744,7 @@ public interface OwnerService {
     Set<Owner> findAll();
 }
 ```
+
 ```java:title=./pet-clinic-data/src/main/java/com/flt/petclinic/services/PetService.java
 package com.flt.petclinic.services;
 
@@ -781,7 +781,7 @@ public interface VetService {
 
 ## Step 7 - Implement Base Entity
 
-Since we need `id` attribute in our model classes to get the value from database, we need to add it as an attribute too. But, we need to add the getters and setters to every model class. That is not efficient and if we need to add another common attribute we have to add that and the getters and setters to every model class as well. So we can overcome this issue by creating a `BaseEntity` and inherit them from it. 
+Since we need `id` attribute in our model classes to get the value from database, we need to add it as an attribute too. But, we need to add the getters and setters to every model class. That is not efficient and if we need to add another common attribute we have to add that and the getters and setters to every model class as well. So we can overcome this issue by creating a `BaseEntity` and inherit them from it.
 
 ```java:title=./pet-clinic-data/src/main/java/com/flt/petclinic/model/BaseEntity.java
 package com.flt.petclinic.model;
@@ -835,6 +835,7 @@ public class Person extends BaseEntity{
     }
 }
 ```
+
 ```java:title=./pet-clinic-data/src/main/java/com/flt/petclinic/model/Pet.java
 package com.flt.petclinic.model;
 
@@ -934,9 +935,9 @@ public interface CrudService<T, ID> {
     T findById(ID id);
 
     T save(T object);
-    
+
     void delete(T object);
-    
+
     void deleteById(ID id);
 }
 ```
@@ -977,6 +978,7 @@ public interface PetService extends CrudService<Pet, Long>{
 ```
 
 ## Step 10 - Implement Map Based Services
+
 To implement map based services, let's first create a new directory inside the services named as `map`. And inside that we will create a new abstract class named `AbstractMapService`.
 
 ```java:title=./pet-clinic-data/src/main/java/com/fltpetclinic/services/map/AbstractMapService.java
@@ -1147,7 +1149,7 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements Crud
 
 ## Step 11 - Create Index Page and Controller
 
-Here, we will be creating an index page using HTML and direct to it using the controller. To create our index page, we can go to the `pet-clinic-web/src/main/resources/templates` and create a new file named `index.html`. 
+Here, we will be creating an index page using HTML and direct to it using the controller. To create our index page, we can go to the `pet-clinic-web/src/main/resources/templates` and create a new file named `index.html`.
 
 ```html:title=./pet-clinic-web/src/main/resources/templates/index.html
 <!DOCTYPE html>
@@ -1162,9 +1164,9 @@ Here, we will be creating an index page using HTML and direct to it using the co
 </html>
 ```
 
-Since, in the beginning of the article we mentioned that we will be using Thymeleaf as the web templating engine for our project, you can see that I have added the Thymeleaf namespace in here as well. 
+Since, in the beginning of the article we mentioned that we will be using Thymeleaf as the web templating engine for our project, you can see that I have added the Thymeleaf namespace in here as well.
 
-Now, we can create our controller class to which will direct us to that page. To do that, we need to create a new package named `controllers` in our `pet-clinic-web` module. And inside that, we will create a new Java class named `IndexController`. 
+Now, we can create our controller class to which will direct us to that page. To do that, we need to create a new package named `controllers` in our `pet-clinic-web` module. And inside that, we will create a new Java class named `IndexController`.
 
 ```java:title=./pet-clinic-web/src/main/java/com/flt/petclinic/controllers/IndexController.java
 package com.flt.petclinic.controllers;
@@ -1182,6 +1184,7 @@ public class IndexController {
     }
 }
 ```
+
 And now, if you run the `PetClinicApplication`, go to the browser and type `localhost:8080`, you will see the following.
 
 ![](./localhost-index.png)
@@ -1257,6 +1260,7 @@ public class OwnerController {
     }
 }
 ```
+
 And And if you run `PetClinicApplication`, go to the browser and type `localhost:8080/owners`, you will see the following.
 
 ![](./owners-index.png)
@@ -1564,12 +1568,12 @@ public class DataLoader implements CommandLineRunner {
     }
 }
 ```
-What we are doing here is called the dependency injection and we can use `@Autowired` annotation above the constructor if needed as it is optional.
 
+What we are doing here is called the dependency injection and we can use `@Autowired` annotation above the constructor if needed as it is optional.
 
 ## Step 15 - List Owners
 
-To list the owners first thing we need to do is get a handle on the `OwnerService` in our `OwnerController`. After injecting the `OwnerService` using constructor dependency injection, we inject the dependency. 
+To list the owners first thing we need to do is get a handle on the `OwnerService` in our `OwnerController`. After injecting the `OwnerService` using constructor dependency injection, we inject the dependency.
 
 ```java:title=./pet-clinic-web/src/main/java/com/flt/petclinic/controllers/OwnerController.java
 package com.flt.petclinic.controllers;
@@ -1635,6 +1639,7 @@ And now, we can update the `index` page of owners to list the owners in our web 
 </body>
 </html>
 ```
+
 Here, adding the comment `<!--/*@thymesVar id="owner" type="com.flt.petclinic.model.Owner"*/-->` helps IntelliJ intellisense to identify the `Owner` object. Now, if you run this and type `localhost:8080/owners` you will see the following.
 
 ![](./owners-index-1.png)
@@ -1700,6 +1705,7 @@ public class VetController {
 </body>
 </html>
 ```
+
 Now if you go to `localhost:8080/vets` you can observe the following.
 
 ![](./vets-index-1.png)
@@ -1904,7 +1910,7 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
 }
 ```
 
-In addition, we can refactor out `DataLoader` class as well. 
+In addition, we can refactor out `DataLoader` class as well.
 
 ```java:title=./pet-clinic-web/src/main/java/com/flt/petclinic/bootstrap/DataLoader.java
 package com.flt.petclinic.bootstrap;
@@ -1962,8 +1968,9 @@ public class DataLoader implements CommandLineRunner {
 }
 ```
 
-
 ## References
+
 This list contains the tips and tricks that you should know when diving into Spring development.
+
 1. Dependency Injection
-2. 
+2.

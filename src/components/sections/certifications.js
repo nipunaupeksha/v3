@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useStaticQuery, graphql } from 'gatsby';
-import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled from 'styled-components';
 import { srConfig } from '../../config';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import sr from '../../utils/sr';
-import { Icon } from '../../components/icons';
 import { usePrefersReducedMotion } from '../../hooks';
+import { graphql, useStaticQuery } from 'gatsby';
+import { TransitionGroup } from 'react-transition-group';
+import { Icon } from '../../components/icons';
 
-const StyledProjectsSection = styled.section`
+const StyledCertificationsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,7 +25,7 @@ const StyledProjectsSection = styled.section`
     }
   }
 
-  .projects-grid {
+  .certifications-grid {
     ${({ theme }) => theme.mixins.resetList};
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -44,7 +45,7 @@ const StyledProjectsSection = styled.section`
   }
 `;
 
-const StyledProject = styled.li`
+const StyledCertificate = styled.li`
   position: relative;
   cursor: default;
   transition: var(--transition);
@@ -52,7 +53,7 @@ const StyledProject = styled.li`
   @media (prefers-reduced-motion: no-preference) {
     &:hover,
     &:focus-within {
-      .project-inner {
+      .certification-inner {
         transform: translateY(-7px);
       }
     }
@@ -63,7 +64,7 @@ const StyledProject = styled.li`
     z-index: 1;
   }
 
-  .project-inner {
+  .certification-inner {
     ${({ theme }) => theme.mixins.boxShadow};
     ${({ theme }) => theme.mixins.flexBetween};
     flex-direction: column;
@@ -77,19 +78,19 @@ const StyledProject = styled.li`
     overflow: auto;
   }
 
-  .project-top {
+  .certification-top {
     ${({ theme }) => theme.mixins.flexBetween};
-    margin-bottom: 35px;
+    margin-bottom: 10px;
 
-    .folder {
+    .award {
       color: var(--first-color);
       svg {
-        width: 40px;
-        height: 40px;
+        width: 20px;
+        height: 20px;
       }
     }
 
-    .project-links {
+    .certification-links {
       display: flex;
       align-items: center;
       margin-right: -10px;
@@ -114,8 +115,7 @@ const StyledProject = styled.li`
       }
     }
   }
-
-  .project-title {
+  .certification-title {
     margin: 0 0 10px;
     color: var(--first-color);
     font-size: var(--h2-font-size);
@@ -136,7 +136,7 @@ const StyledProject = styled.li`
     }
   }
 
-  .project-description {
+  .certification-description {
     color: var(--text-color);
     font-size: 17px;
 
@@ -145,7 +145,7 @@ const StyledProject = styled.li`
     }
   }
 
-  .project-tech-list {
+  .certification-tech-list {
     display: flex;
     align-items: flex-end;
     flex-grow: 1;
@@ -165,15 +165,62 @@ const StyledProject = styled.li`
       }
     }
   }
+
+  .certification-image {
+    ${({ theme }) => theme.mixins.boxShadow};
+    grid-column: 6 / -1;
+    grid-row: 1 / -1;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 768px) {
+      grid-column: 1 / -1;
+      height: 100%;
+      opacity: 0.25;
+    }
+
+    a {
+      width: 100%;
+      height: 100%;
+      background-color: var(--body-color);
+      border-radius: var(--border-radius);
+      vertical-align: middle;
+
+      &:hover,
+      &:focus {
+        background: transparent;
+        outline: 0;
+
+        &:before,
+        .img {
+          background: transparent;
+          filter: none;
+        }
+      }
+    }
+
+    .img {
+      border-radius: var(--border-radius);
+      mix-blend-mode: multiply;
+      filter: grayscale(100%) contrast(1) brightness(90%);
+
+      @media (max-width: 768px) {
+        object-fit: cover;
+        width: auto;
+        height: 100%;
+        filter: grayscale(100%) contrast(1) brightness(50%);
+      }
+    }
+  }
 `;
 
-const Projects = () => {
+const Certifications = () => {
   const data = useStaticQuery(graphql`
     query {
-      projects: allMarkdownRemark(
+      certifications: allMarkdownRemark(
         filter: {
-          fileAbsolutePath: { regex: "/content/projects/" }
-          frontmatter: { showInProjects: { ne: false } }
+          fileAbsolutePath: { regex: "/content/certifications/" }
+          frontmatter: { showInCertifications: { ne: false } }
         }
         sort: { fields: [frontmatter___date], order: DESC }
       ) {
@@ -181,9 +228,12 @@ const Projects = () => {
           node {
             frontmatter {
               title
-              tech
-              github
-              external
+              cover {
+                childImageSharp {
+                  gatsbyImageData(width: 700, placeholder: BLURRED, formats: [AUTO, WEBP, AVIF])
+                }
+              }
+              issuer
             }
             html
           }
@@ -194,71 +244,47 @@ const Projects = () => {
 
   const [showMore, setShowMore] = useState(false);
   const revealTitle = useRef(null);
+  const revealCertifications = useRef([]);
   const revealArchiveLink = useRef(null);
-  const revealProjects = useRef([]);
   const prefersReducedMotion = usePrefersReducedMotion();
-
   useEffect(() => {
-    if (prefersReducedMotion) {
-      return;
-    }
-
+    if (prefersReducedMotion) return;
     sr.reveal(revealTitle.current, srConfig());
-    sr.reveal(revealArchiveLink.current, srConfig());
-    revealProjects.current.forEach((ref, i) => sr.reveal(ref, srConfig(i * 100)));
   }, []);
-
   const GRID_LIMIT = 6;
-  const projects = data.projects.edges.filter(({ node }) => node);
-  const firstSix = projects.slice(0, GRID_LIMIT);
-  const projectsToShow = showMore ? projects : firstSix;
+  const certificates = data.certifications.edges.filter(({ node }) => node);
+  const firstSix = certificates.slice(0, GRID_LIMIT);
+  const certificationsToShow = showMore ? certificates : firstSix;
 
-  const projectInner = node => {
+  const certificatesInner = node => {
     const { frontmatter, html } = node;
-    const { github, external, title, tech } = frontmatter;
+    const { title, issuer, cover } = frontmatter;
+    const image = getImage(cover);
 
     return (
-      <div className="project-inner">
+      <div className="certification-inner">
         <header>
-          <div className="project-top">
-            <div className="folder">
-              <Icon name="Folder" />
-            </div>
-            <div className="project-links">
-              {github && (
-                <a href={github} aria-label="GitHub Link" target="_blank" rel="noreferrer">
-                  <Icon name="GitHub" />
-                </a>
-              )}
-              {external && (
-                <a
-                  href={external}
-                  aria-label="External Link"
-                  className="external"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <Icon name="External" />
-                </a>
-              )}
+          <div className="certification-top">
+            <div className="award">
+              <Icon name="Award" />
             </div>
           </div>
 
-          <h3 className="project-title">
-            <a href={external} target="_blank" rel="noreferrer">
-              {title}
-            </a>
-          </h3>
+          <h3 className="certification-title">{title}</h3>
 
-          <div className="project-description" dangerouslySetInnerHTML={{ __html: html }} />
+          <div className="certification-description" dangerouslySetInnerHTML={{ __html: html }} />
         </header>
 
+        <div className="certification-image">
+          <a href="#">
+            <GatsbyImage image={image} alt={title} className="img" />
+          </a>
+        </div>
+
         <footer>
-          {tech && (
-            <ul className="project-tech-list">
-              {tech.map((tech, i) => (
-                <li key={i}>{tech}</li>
-              ))}
+          {issuer && (
+            <ul className="certification-tech-list">
+              <li>{issuer}</li>
             </ul>
           )}
         </footer>
@@ -267,25 +293,21 @@ const Projects = () => {
   };
 
   return (
-    <StyledProjectsSection>
-      <h2 ref={revealTitle}>Other Noteworthy Projects</h2>
+    <StyledCertificationsSection id="certifications">
+      <h2 ref={revealTitle}>Certifications</h2>
 
-      <Link className="inline-link archive-link" to="/archive" ref={revealArchiveLink}>
-        view the archive
-      </Link>
-
-      <ul className="projects-grid">
+      <ul className="certifications-grid">
         {prefersReducedMotion ? (
           <>
-            {projectsToShow &&
-              projectsToShow.map(({ node }, i) => (
-                <StyledProject key={i}>{projectInner(node)}</StyledProject>
+            {certificationsToShow &&
+              certificationsToShow.map(({ node }, i) => (
+                <StyledCertificate key={i}>{certificatesInner(node)}</StyledCertificate>
               ))}
           </>
         ) : (
           <TransitionGroup component={null}>
-            {projectsToShow &&
-              projectsToShow.map(({ node }, i) => (
+            {certificationsToShow &&
+              certificationsToShow.map(({ node }, i) => (
                 <CSSTransition
                   key={i}
                   classNames="fadeup"
@@ -294,7 +316,7 @@ const Projects = () => {
                 >
                   <StyledProject
                     key={i}
-                    ref={el => (revealProjects.current[i] = el)}
+                    ref={el => (revealCertifications.current[i] = el)}
                     style={{
                       transitionDelay: `${i >= GRID_LIMIT ? (i - GRID_LIMIT) * 100 : 0}ms`,
                     }}
@@ -306,12 +328,11 @@ const Projects = () => {
           </TransitionGroup>
         )}
       </ul>
-
       <button className="more-button" onClick={() => setShowMore(!showMore)}>
         Show {showMore ? 'Less' : 'More'}
       </button>
-    </StyledProjectsSection>
+    </StyledCertificationsSection>
   );
 };
 
-export default Projects;
+export default Certifications;

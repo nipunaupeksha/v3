@@ -631,7 +631,7 @@ Now, your file structure would look like this.
     └── setupTests.js
 ```
 
-Since we have learnt about the *class components* and *lifecycle methods* we will optimize the code and finish our project here. To create the images that we need for the cards, we will be using the [robohash](https://robohash.org/) generator. 
+Since we have learnt about the _class components_ and _lifecycle methods_ we will optimize the code and finish our project here. To create the images that we need for the cards, we will be using the [robohash](https://robohash.org/) generator.
 
 ```jsx:title=./src/components/card/card.component.jsx
 import { Component } from "react";
@@ -817,17 +817,16 @@ body {
 }
 ```
 
-And we can add the font *Bigelow Rules* in `./public/index.html` by adding the following line,
+And we can add the font _Bigelow Rules_ in `./public/index.html` by adding the following line,
 `<link href="https://fonts.googleapis.com/css2?family=Bigelow+Rules&display=swap" rel="stylesheet"/>`
 
 ![](./final.png)
 
 So one of the important concepts to note in the above files is the way we have used `props`. And you can see that we are also destructuring the `props` for more readability.
 
-Since, this article is on *class components* and *lifecycle methods* I won't be stressing about `props` and how to use them. But I will include some references if you want to learn more about them. 😊 You can find the project we created by accessing this [link](https://github.com/nipunaupeksha/robot-rolodex).
+Since, this article is on _class components_ and _lifecycle methods_ I won't be stressing about `props` and how to use them. But I will include some references if you want to learn more about them. 😊 You can find the project we created by accessing this [link](https://github.com/nipunaupeksha/robot-rolodex).
 
 ## References
 
 - https://blog.logrocket.com/react-lifecycle-methods-tutorial-examples/
 - https://reactjs.org/docs/components-and-props.html
-

@@ -17,12 +17,12 @@ const StyledProjectsGrid = styled.ul`
 `;
 
 const StyledIconLink = styled.a`
-    padding: 10px;
+  padding: 10px;
 
-    &:hover,
-    &:focus {
-    transform: translateY(-3px);    
-    }
+  &:hover,
+  &:focus {
+    transform: translateY(-3px);
+  }
 `;
 
 const StyledProject = styled.li`
@@ -391,13 +391,22 @@ const Featured = () => {
 
                     <div className="project-links">
                       {github && (
-                        <StyledIconLink href={github} aria-label="GitHub Link" style={{color:'var(--first-color)'}}>
-                          <Icon name="GitHub"/>
+                        <StyledIconLink
+                          href={github}
+                          aria-label="GitHub Link"
+                          style={{ color: 'var(--first-color)' }}
+                        >
+                          <Icon name="GitHub" />
                         </StyledIconLink>
                       )}
                       {external && (
-                        <StyledIconLink href={external} aria-label="External Link" className="external" style={{color:'var(--first-color)'}}>
-                          <Icon name="External"/>
+                        <StyledIconLink
+                          href={external}
+                          aria-label="External Link"
+                          className="external"
+                          style={{ color: 'var(--first-color)' }}
+                        >
+                          <Icon name="External" />
                         </StyledIconLink>
                       )}
                     </div>

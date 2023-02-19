@@ -168,7 +168,7 @@ Answer → 232792560
 
 ```java
 class Solution{
-    
+
     public static void main(String args[]){
         System.out.println(new Solution().getSolution());
     }
@@ -228,18 +228,18 @@ Answer → 103813
 
 ```java
 class Solution{
-    
+
     private final int ADJACENT = 13;
-    
+
     private final String NUMBER = "73167176531330624919225119674426574742355349194934969835203127745326239578318016984801869478851843858615607891129494954595017379583319528532088055111254069874715852386305071569329096329522744304355766896648950445244523161731856403098711121722383113622298934233803081353362766142828064444866452387493035890729629049156044077239071381051585930796086670172427121883998797908792274921901699720888093776657273330010533678812202354218097512545405947522435258490771167055601360483958644670632441572215539753697817977846174064955149290862569321978468622482839722413756570560574902614079729686524145351004748216637048440319989000889524345065854122758866688116427171479924442928230863465674813919123162824586178664583591245665294765456828489128831426076900422421902267105562632111110937054421750694165896040807198403850962455444362981230987879927244284909188845801561660979191338754992005240636899125607176060588611646710940507754100225698315520005593572972571636269561882670428252483600823257530420752963450";
-    
+
     public static void main(String args[]){
-        
+
         System.out.println(new Solution().getSolution());
     }
-    
+
     public String getSolution(){
-        
+
         long maxProd = -1;
         int n = NUMBER.length();
         for(int i = 0; i + ADJACENT <= n; i++){
@@ -258,19 +258,18 @@ Answer → 23514624000
 
 ## Question 9 - Special Pythagorean Triplet
 
-
 ```java
 class Solution{
-    
+
     private final int LIMIT = 1000;
-    
+
     public static void main(String args[]){
-        
+
         System.out.println(new Solution().getSolution());
     }
-    
+
     public String getSolution(){
-        
+
         for(int a = 1; a < LIMIT; a++){
             for(int b = a + 1; b < LIMIT; b++){
                 int c = LIMIT - a - b;
@@ -290,16 +289,16 @@ Answer → 31875000
 
 ```java
 class Solution{
-    
+
     private final int LIMIT = 2 * (int)Math.pow(10, 6);
-    
+
     public static void main(String args[]){
-        
+
         System.out.println(new Solution().getSolution());
     }
-    
+
     public String getSolution(){
-        
+
         long sum = 2;
         for(int i = 3;i < LIMIT;i+=2){
             if(isPrime(i)){
@@ -308,9 +307,9 @@ class Solution{
         }
         return Long.toString(sum);
     }
-    
+
     public boolean isPrime(int n){
-        
+
         if(n < 0) throw new IllegalArgumentException("Negative number");
         if(n == 0 || n == 1) return false;
         else if(n == 2) return true;
@@ -335,14 +334,14 @@ public class Solution {
     public static void main(String[] args) {
 		System.out.println(new Solution().getSolution());
 	}
-	
-	
-	/* 
+
+
+	/*
 	 * We visit each grid cell and compute the product in the 4 directions starting from that cell.
 	 * Note that the maximum product is 99^4 = 96059601, which fits in a Java int type.
 	 */
 	private static final int CONSECUTIVE = 4;
-	
+
 	public String getSolution() {
 
 		int max = -1;
@@ -356,27 +355,27 @@ public class Solution {
 		}
 		return Integer.toString(max);
 	}
-	
-	
+
+
 	private static int product(int x, int y, int dx, int dy, int n) {
 
 		// First endpoint is assumed to be in bounds. Check if second endpoint is in bounds.
 		if (!isInBounds(x + (n - 1) * dx, y + (n - 1) * dy))
 			return -1;
-		
+
 		int prod = 1;
 		for (int i = 0; i < n; i++, x += dx, y += dy)
 			prod *= SQUARE[y][x];
 		return prod;
 	}
-	
-	
+
+
 	private static boolean isInBounds(int x, int y) {
-        
+
 		return 0 <= y && y < SQUARE.length && 0 <= x && x < SQUARE[y].length;
 	}
-	
-	
+
+
 	private static int[][] SQUARE = {
 		{ 8, 2,22,97,38,15, 0,40, 0,75, 4, 5, 7,78,52,12,50,77,91, 8},
 		{49,49,99,40,17,81,18,57,60,87,17,40,98,43,69,48, 4,56,62, 0},

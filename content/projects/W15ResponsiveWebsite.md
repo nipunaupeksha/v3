@@ -11,4 +11,4 @@ company: ''
 showInProjects: false
 ---
 
-This was made as a guide for people who are starting web development using HTML, CSS and JS. 
+This was made as a guide for people who are starting web development using HTML, CSS and JS.

@@ -11,8 +11,6 @@
 
 ![demo](https://raw.githubusercontent.com/nipunaupeksha/nipunaupeksha.github.io/main/src/images/demo.png)
 
-
-
 ## 🛠 Installation & Set Up
 
 1. Install the Gatsby CLI

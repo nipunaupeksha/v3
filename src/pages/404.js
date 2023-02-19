@@ -47,12 +47,18 @@ const NotFoundPage = ({ location }) => {
 
   const content = (
     <StyledMainContainer className="fillHeight">
-      <StyledTitle><RoughNotation  animationDuration={1000}
-                animationDelay={100}
-                strokeWidth={2}
-                type="circle"
-                color={config.colors.accent_color}
-                show={true}>404</RoughNotation></StyledTitle>
+      <StyledTitle>
+        <RoughNotation
+          animationDuration={1000}
+          animationDelay={100}
+          strokeWidth={2}
+          type="circle"
+          color={config.colors.accent_color}
+          show={true}
+        >
+          404
+        </RoughNotation>
+      </StyledTitle>
       <StyledSubtitle>Page Not Found</StyledSubtitle>
       <StyledHomeButton to="/">Go Home</StyledHomeButton>
     </StyledMainContainer>

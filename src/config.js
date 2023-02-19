@@ -43,11 +43,15 @@ module.exports = {
     },
     {
       name: 'Experience',
-      url: "/#jobs"
+      url: '/#jobs',
     },
     {
       name: 'Work',
       url: '/#projects',
+    },
+    {
+      name: 'Certifications',
+      url: '/#certifications',
     },
     {
       name: 'Contact',
@@ -55,8 +59,8 @@ module.exports = {
     },
     {
       name: 'Pensieve',
-      url: '/pensieve'
-    }
+      url: '/pensieve',
+    },
   ],
 
   srConfig: (delay = 200, viewFactor = 0.25) => ({

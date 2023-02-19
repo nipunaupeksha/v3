@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
+  IconAward,
   IconBookmark,
   IconCode,
   IconExternal,
@@ -19,14 +20,16 @@ import {
 
 const Icon = ({ name }) => {
   switch (name) {
+    case 'Award':
+      return <IconAward />;
     case 'Bookmark':
       return <IconBookmark />;
     case 'Code':
       return <IconCode />;
     case 'External':
       return <IconExternal />;
-      case 'Folder':
-        return <IconFolder />;
+    case 'Folder':
+      return <IconFolder />;
     case 'Fork':
       return <IconFork />;
     case 'GitHub':

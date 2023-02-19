@@ -1,6 +1,6 @@
 ---
 title: Dependency Injection
-description: Dependency Injection with Spring 
+description: Dependency Injection with Spring
 date: '2022-08-11'
 draft: false
 slug: '/pensieve/spring-001'
@@ -11,12 +11,11 @@ tags:
 
 ## Dependency Injection
 
-Although dependency injection is an important concept in software engineering, it is actually an easy concept. It basically means providing the objects that another object needs (its dependencies) instead of having that another object construct them itself. 
+Although dependency injection is an important concept in software engineering, it is actually an easy concept. It basically means providing the objects that another object needs (its dependencies) instead of having that another object construct them itself.
 
 Think of dependency injection like this, think of yourself as a five year old kid. And now when you go and get things out of refrigerator for yourself, you can cause problems. You might leave the door open, you might get something that your parents don't want you to have. You might even be looking for something that don't even have or which has expired. So what you should actually do in this situation is stating a need, "I need something to drink with lunch" and then your parents will make sure you have that something when you sit down to eat. (- John Munsch)
 
 So in simplest terms dependency injection means, giving something that an object have to another object. To get an idea of dependency injection in Spring framework and the common annotations associated with dependency injection, we will create a small program using Spring.
-
 
 ### Types of dependency injection
 
@@ -49,12 +48,13 @@ import org.springframework.context.ApplicationContext;
 public class DemoApplication {
 
 	public static void main(String[] args) {
-		
+
 		ApplicationContext ctx = SpringApplication.run(DemoApplication.class, args);
 	}
 }
 ```
-To test out the three ways of dependency injection we will start with creating two new packages named `services` and `controllers` in `com.example.demo` package. 
+
+To test out the three ways of dependency injection we will start with creating two new packages named `services` and `controllers` in `com.example.demo` package.
 
 And in `services` package we will create two new `.java` files, `HelloWorldService.java` and `HelloWorldServiceImpl.java`.
 
@@ -153,6 +153,7 @@ public class PropertyInjectedController {
     }
 }
 ```
+
 But now when we run it again, we will get a different error.
 
 ```shell
@@ -183,11 +184,11 @@ public class PropertyInjectedController {
 }
 ```
 
-And after fixing that and running it, you will face another error. 
+And after fixing that and running it, you will face another error.
 
 ```shell
 Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
-2022-08-11 00:37:01.382 ERROR 16099 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+2022-08-11 00:37:01.382 ERROR 16099 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   :
 
 ***************************
 APPLICATION FAILED TO START
@@ -263,6 +264,7 @@ public class SetterInjectedController {
     }
 }
 ```
+
 In this `SetterInjectedController` file you can notice that, an instance of `HelloWorldService` is set to the instance variable `helloWorldService` using a setter method. Now if we run this in the `DemoApplication`, we will get the following error.
 
 ```java:title=./src/main/java/com/example/demo/DemoApplication.java
@@ -398,9 +400,9 @@ public class DemoApplication {
 Hello World
 ```
 
-This is because adding the `@Autowired` annotation above constructor is optional for Constructor Based DI. 
+This is because adding the `@Autowired` annotation above constructor is optional for Constructor Based DI.
 
-So now let's try to find what is the best way to inject dependencies using these three ways. 
+So now let's try to find what is the best way to inject dependencies using these three ways.
 
 You can notice that in property based dependency injection we had to use a `public` variable and that violates encapsulation in OOP. And in setter based dependency injection we were doing ok with a `private` variable. And in constructor based injection we were able to use it as a `private final` variable. So, it is obvious that property based dependency injection is bad and other two are good. But what is the best way to inject dependencies? It is actually constructor based dependency injection, because it is not using `@Autowired` annotation and the dependency is injected at runtime fully utilizing the inversion of control(inversion of control means injecting dependencies in run time).
 
@@ -583,8 +585,7 @@ Hello World - setter
 Hello World - constructor
 ```
 
-And it is important that you note that we give the class name with the `@Qualifier` annotation and rather than starting it with upper case we are starting it with lower case. 
-
+And it is important that you note that we give the class name with the `@Qualifier` annotation and rather than starting it with upper case we are starting it with lower case.
 
 ### `@Primary` Annotation
 
@@ -764,6 +765,7 @@ public class I18nController {
     }
 }
 ```
+
 So if I run this, spring cannot understand which service that I want, so that it will give an error.
 
 ```java:title=./src/main/java/com/example/demo/DemoApplication.java
@@ -817,7 +819,6 @@ Caused by: org.springframework.context.annotation.ConflictingBeanDefinitionExcep
 
 To fix that first we need to add `@Profile` for those two services and add a new configuration in our `./src/main.resources/application.properties` file.
 
-
 ```java:title=./src/main/java/com/example/demo/services/I18nEnglishService.java
 package com.example.demo.services;
 
@@ -853,6 +854,7 @@ public class I18nGermanService implements HelloWorldService{
     }
 }
 ```
+
 ```properties:title=./src/main.resources/application.properties
 spring.profiles.active=DE
 ```
@@ -888,13 +890,14 @@ public class I18nGermanService implements HelloWorldService{
     }
 }
 ```
+
 And now if we don't include the profile configuration in `application.properties` file, the `I18nGermanService` will be selected as the default service by Spring.
 
 ## Conclusion
 
 In this article, we looked at different ways of injecting dependencies and annotations that we could use with dependecy injection. To find more about dependency injection you can use the following resources.
+
 - [Baeldung](https://www.baeldung.com/spring-dependency-injection)
 - [Javatpoint](https://www.javatpoint.com/dependency-injection-in-spring)
 
 And finally, you can find the **demo** project from [here](https://github.com/nipunaupeksha/spring-di).
-

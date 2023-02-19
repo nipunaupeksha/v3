@@ -9,21 +9,21 @@ tags:
   - Java
 ---
 
-
 ## Introduction
 
 When building performant, versatile software, it is important to follow a thorough design principle. One of the most famous one to use in software world for that is **SOLID**. The **SOLID** principles design is an **OOD(Object Oriented Design)** design principle introduced by **Robert C. Martin** aka **Uncle Bob**. The word **SOLID** is actually an acronym made of the five principles introduced by uncle Bob.
+
 - Single Responsibility Principle
 - Open/Closed Principle
 - Liskov Substitution Principle
 - Interface Segregation Principle
 - Dependency Inversion Principle
 
-In this article, we will try to understand what those principles are and how we can use them to implement performant code. 
+In this article, we will try to understand what those principles are and how we can use them to implement performant code.
 
 ### Single Responsibility Principle
 
-The single responsibility principle states that, each class should have only sole purpose and not be filled with excessive functionality. Let's assume that we have a Java class named `AreaCalculator` with one method to find the area of a shape. And if we are going to add several methods like printing the area of the shape as a JSON object or as a CSV to that class, then that class is not doing the single purpose that it is intended to do, thus violating the single responsibility principle. 
+The single responsibility principle states that, each class should have only sole purpose and not be filled with excessive functionality. Let's assume that we have a Java class named `AreaCalculator` with one method to find the area of a shape. And if we are going to add several methods like printing the area of the shape as a JSON object or as a CSV to that class, then that class is not doing the single purpose that it is intended to do, thus violating the single responsibility principle.
 
 So, how can we fix this? We can create another class named `PrintArea` to add various printing methods.
 
@@ -52,6 +52,3 @@ So, in this article we have discussed the **SOLID** principles and how they shou
 - Solid Principles Succinctly by Gaurav Arora
 - Clean Code by Robert C. Martin
 - Clean Code in Python, Develop Maintainable and Efficient Code by Mariano Anaya
-
-
-

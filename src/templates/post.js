@@ -31,15 +31,15 @@ const StyledPostContent = styled.div`
   }
 
   h2 {
-    font-size:var(--h2-font-size);
+    font-size: var(--h2-font-size);
   }
 
   h3 {
-    font-size:var(--h3-font-size);
+    font-size: var(--h3-font-size);
   }
 
   h4 {
-    font-size:var(--h4-font-size);
+    font-size: var(--h4-font-size);
   }
 
   p {
@@ -82,7 +82,9 @@ const PostTemplate = ({ data, location }) => {
       <StyledPostContainer>
         <span className="breadcrumb">
           <span className="arrow">&larr;</span>
-          <Link style={{fontFamily:'var(--font-sans)'}} to="/pensieve">All memories</Link>
+          <Link style={{ fontFamily: 'var(--font-sans)' }} to="/pensieve">
+            All memories
+          </Link>
         </span>
 
         <StyledPostHeader>
@@ -120,7 +122,7 @@ PostTemplate.propTypes = {
 };
 
 export const pageQuery = graphql`
-  query($path: String!) {
+  query ($path: String!) {
     markdownRemark(frontmatter: { slug: { eq: $path } }) {
       html
       frontmatter {

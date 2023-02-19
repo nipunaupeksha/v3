@@ -11,7 +11,6 @@ tags:
 
 ## Question 1 - Two Sum
 
-
 ```java:title=S1
 class Solution{
     public int[] twoSum(int[] nums, int target){
@@ -78,7 +77,7 @@ class Solution {
                 l1=l1.next;
             }
             if(l2!=null){
-             l2=l2.next;   
+             l2=l2.next;
             }
         }
         return temp.next;
@@ -144,16 +143,16 @@ class Solution {
             int partY = (combinedLength + 1)/2 - partX;
             int leftX = getMax(nums1, partX);
             int rightX = getMin(nums1, partX);
-            
+
             int leftY = getMax(nums2, partY);
             int rightY = getMin(nums2, partY);
-            
+
             if(leftX <= rightY && leftY <= rightX){
                 if(combinedLength %2 == 0){
                     return (Math.max(leftX, leftY) + Math.min(rightX, rightY))/2.0;
                 }
                 return Math.max(leftX, leftY);
-            } 
+            }
             if(leftX > rightY){
                 hi = partX - 1;
             }else{
@@ -162,7 +161,7 @@ class Solution {
         }
         return -1;
     }
-    
+
     private int getMax(int[] nums, int partition){
         if(partition == 0){
             return (int)Double.NEGATIVE_INFINITY;
@@ -170,7 +169,7 @@ class Solution {
             return nums[partition - 1];
         }
     }
-    
+
     private int getMin(int[] nums, int partition){
         if(partition == nums.length){
             return (int)Double.POSITIVE_INFINITY;
@@ -283,7 +282,6 @@ class Solution{
     }
 }
 ```
-
 
 ## Question 20 - Valid Parentheses
 
@@ -429,7 +427,7 @@ class Solution{
 /**
 * Definition for singly-linked list.
 *public class ListNode{
-*    int val; 
+*    int val;
 *    ListNode next;
 *    ListNode(){}
 *    ListNode(int val){this.val = val};
@@ -514,14 +512,14 @@ class Solution{
 ```java
 class Solution {
     public void moveZeroes(int[] nums) {
-        
+
         int n = nums.length;
         if(n<2) return;
         int L = 0;
         int R = 1;
         while(R<n){
             if(nums[L]!=0){
-                L++; 
+                L++;
                 R++;
             }else if(nums[R]==0){
                 R++;
