@@ -3,6 +3,7 @@ date: '3'
 title: 'Prototyping a Functional Hearing Aid'
 cover: './demo.png'
 github: 'https://github.com/nipunaupeksha/codecomposer-codes-fyp'
+external: 'https://arxiv.org/abs/2303.17829'
 tech:
   - C
   - MATLAB

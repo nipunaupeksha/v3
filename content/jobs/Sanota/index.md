@@ -8,8 +8,10 @@ url: 'http://www.sanota.lk/'
 
 - Introduced an innovative way of tracking AGVs using inductive sensor based system coupled with ESP 8266, Arduino and trilateration.
 
-- Worked with a team of three engineers to build a web based Apperal Management System.
+- Worked with a team of engineers to build a web based Apperal Management System.
 
 - Contributed on implementina portable graph plotting device using Raspberry Pi and Java.
+
+- Implemented and indoor Wi-Fi-based positioning system using Node MCU/ESP8266 grid.
 
 - Worked closely with engineers and designers to develop, document and manage the mentioned projects while providing demonstrations for muliple potential clients.
