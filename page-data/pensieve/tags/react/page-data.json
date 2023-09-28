@@ -2,4 +2,4 @@
     "componentChunkName": "component---src-templates-tag-js",
     "path": "/pensieve/tags/react/",
     "result": {"data":{"allMarkdownRemark":{"totalCount":1,"edges":[{"node":{"frontmatter":{"title":"React Class Components and Lifecycle Methods","description":"Understanding React Class Components.","date":"2022-08-19","slug":"/pensieve/react-001","tags":["React","JavaScript"]}}}]}},"pageContext":{"tag":"React"}},
-    "staticQueryHashes": ["1994492073","2273691282","3825832676","4162897811"]}
+    "staticQueryHashes": ["1994492073","2273691282","3825832676","4060284664","4162897811"]}
